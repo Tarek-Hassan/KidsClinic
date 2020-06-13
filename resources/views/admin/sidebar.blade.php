@@ -98,6 +98,15 @@
                     </p>
                 </a>
             </li>
+            <li class="nav-item">
+                <a href="{{url('admin/schedule')}}" class="nav-link">
+                   
+                    <i class="nav-icon fa fa-calendar" aria-hidden="true"></i>
+                    <p>
+                        Schedule
+                    </p>
+                </a>
+            </li>
             {{-- <li class="nav-item">
                     <a href="{{url('areas')}}" class="nav-link">
             <i class="nav-icon fas fa-map-marker-alt"></i>
