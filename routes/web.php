@@ -16,8 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-// Route::get('/', 'HomeController@index')->name('home');
-// Route::get('/home', 'HomeController@index')->name('home');
+
 
 Auth::routes();
 Route::prefix('/admin')->middleware(['auth',])->group(function(){
@@ -49,22 +48,33 @@ Route::prefix('/admin')->middleware(['auth',])->group(function(){
         Route::get('visits/create/{patient}', 'VisitController@create')->name("visits.create");
         // toStoreVisits
         Route::post('/{patient}/visits', 'VisitController@store')->name("patients.visits.store");
-        // Route::get('patients/{patient}', 'PatientController@show')->name("patients.show");
-        // Route::post('/{post}/comments', 'CommentController@store')->name("posts.visits.store");
-        // Route::post('visits', 'VisitController@store')->name("visits.store");
-        // Route::get('patients/{patient}/edit', 'PatientController@edit')->name("patients.edit");
-        // Route::put('patients/{patient}', 'PatientController@update')->name("patients.update");
-        // Route::delete('patients/{patient}', 'PatientController@destroy')->name("patients.destroy");
+
     });
      // Admin => SChudual PAGE
      Route::prefix('/schedule')->group(function(){
         Route::get('', 'ScheduleController@index')->name('schedule.index');
-        // Route::get('/create', 'PatientController@create')->name("patients.create");
-        // Route::post('', 'PatientController@store')->name("patients.store");
-        // Route::get('/{patient}', 'PatientController@show')->name("patients.show");
-        // Route::get('/{patient}/edit', 'PatientController@edit')->name("patients.edit");
-        // Route::put('/{patient}', 'PatientController@update')->name("patients.update");
-        // Route::delete('/{patient}', 'PatientController@destroy')->name("patients.destroy");
+        Route::get('/create', 'ScheduleController@create')->name("schedule.create");
+        Route::post('', 'ScheduleController@store')->name("schedule.store");
+        Route::get('/{schedule}/edit', 'ScheduleController@edit')->name("schedule.edit");
+        Route::put('/{schedule}', 'ScheduleController@update')->name("schedule.update");
+        Route::delete('/{schedule}', 'ScheduleController@destroy')->name("schedule.destroy");
+
     });
+    // Admin => Calender PAGE
+     Route::prefix('/calender')->group(function(){
+        Route::get('', 'CalenderController@index')->name('calender.index');
+        Route::post('/update', 'CalenderController@update');
+        Route::post('/delete', 'CalenderController@destroy');
+    });
+        // Admin => Statistics PAGE
+    Route::prefix('/statistics')->group(function(){
+        Route::get('', 'StatisticController@index')->name('statistics.index');
+        Route::get('/create', 'StatisticController@create')->name("statistics.create");
+        Route::post('', 'StatisticController@store')->name("statistics.store");
+        Route::get('/{statistics}', 'StatisticController@show')->name("statistics.show");
+        Route::get('/{statistics}/edit', 'StatisticController@edit')->name("statistics.edit");
+        Route::put('/{statistics}', 'StatisticController@update')->name("statistics.update");
+        Route::delete('/{statistics}', 'StatisticController@destroy')->name("statistics.destroy");
+});
         
 });

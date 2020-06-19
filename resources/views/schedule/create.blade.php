@@ -1,6 +1,22 @@
 @extends('admin.index')
-@section('title','Patients')
-@section('section_title','Create Patient')
+@section('title','schedule')
+@section('section_title','Create schedule')
+@section('css')
+
+<!-- daterange picker -->
+<link rel="stylesheet" href="{{asset('control')}}/plugins/daterangepicker/daterangepicker.css">
+<!-- iCheck for checkboxes and radio inputs -->
+<link rel="stylesheet" href="{{asset('control')}}/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+<!-- Bootstrap Color Picker -->
+<link rel="stylesheet" href="{{asset('control')}}/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css">
+<!-- Tempusdominus Bbootstrap 4 -->
+<link rel="stylesheet"
+    href="{{asset('control')}}/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+
+<!-- Bootstrap4 Duallistbox -->
+<link rel="stylesheet" href="{{asset('control')}}/plugins/bootstrap4-duallistbox/bootstrap-duallistbox.min.css">
+
+@endsection
 @section('content')
 <!-- Main content -->
 <section class="content">
@@ -12,86 +28,58 @@
                 <div class="card card-primary">
                     @include('admin.error')
                     <div class="card-header">
-                        <h3 class="card-title">Create Patient</h3>
+                        <h3 class="card-title">Create schedule</h3>
                     </div>
                     <!-- /.card-header -->
                     <!-- form start -->
 
-                    <form method="POST" action="{{route('patients.store')}}" enctype="multipart/form-data">
+                    <form method="POST" action="{{route('schedule.store')}}" enctype="multipart/form-data">
                         @csrf
                         <div class="card-body">
 
                             <div class="form-group">
-                                <label for="exampleInputaddress">name</label>
-                                <input type="text" name="name" class="form-control" id="exampleInputname"
-                                    placeholder="Enter Your Name">
+                                <label for="exampleInputaddress">Title</label>
+                                <input type="text" name="title" class="form-control" id="exampleInputtitle"
+                                    placeholder="Enter Your Title">
                             </div>
-                            <div class="row mb-3">
-                                <div class="col input-group">
-                                    <input type="number" class="form-control" id="age" autofocus placeholder="Enter Age"
-                                        name="age">
+                            <div class="form-group">
+                                <label>Date and time range:</label>
+
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="far fa-clock"></i></span>
+                                    </div>
+                                    <input type="text" name="date" class="form-control float-right"
+                                        id="reservationtime">
                                 </div>
-                                <div class="col input-group">
-                                    <input type="number" class="form-control" id="number" type="text" autofocus
-                                        placeholder="Enter his Number" name="number">
+                                <!-- /.input group -->
+                            </div>
+                            <!-- /.form group -->
+                            <!-- Color Picker -->
+                            <div class="form-group">
+                                <label>Card Color</label>
+
+                                <div class="input-group my-colorpicker2">
+                                    <input type="text" class="form-control" name="color">
+
+                                    <div class="input-group-append">
+                                        <span class="input-group-text"><i class="fas fa-square fa-5x" ></i></span>
+                                    </div>
+                                </div>
+                                <!-- /.input group -->
+                            </div>
+                            <!-- /.form group -->
+
+                            <div class="card card-secondary">
+                                <div class="card-header">
+                                    <h3 class="card-title">All
+                                        Day</h3>
+                                </div>
+                                <div class="card-body">
+                                    <input type="checkbox" name="allDay" checked data-bootstrap-switch>
+
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label for="exampleInputaddress">DaD Job</label>
-                                <input type="text" name="dad_job" class="form-control" id="exampleInputdad_job"
-                                    placeholder="Enter Your DaD Job">
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputaddress">Mum Job</label>
-                                <input type="text" name="mum_job" class="form-control" id="exampleInputmum_job"
-                                    placeholder="Enter Your Mum Job">
-                            </div>
-
-
-                            <div class="form-group">
-                                Blood Type
-                                <select class="custom-select" name="blood_type">
-                                    <option value="0">O+</option>
-
-                                    <option value="1">O-</option>
-                                    <option value="2">A+</option>
-                                    <option value="3">A-</option>
-                                    <option value="4">B+</option>
-                                    <option value="5">B-</option>
-
-                                    <option value="6">AB+</option>
-                                    <option value="7">AB-</option>
-
-
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                Birth Type
-                                <select class="custom-select" name="birth_type">
-
-
-                                    <option value="0">Natural childbirth</option>
-                                    <option value="1">Caesarean delivery</option>
-
-                                </select>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="exampleInputaddress">Phone</label>
-                                <input type="number" name="phone" maxlength="14" class="form-control"
-                                    id="exampleInputPhone" placeholder="Enter Phone">
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputaddress">Address</label>
-                                <input type="text" name="address" class="form-control" id="exampleInputAddress"
-                                    placeholder="Enter Address">
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleFormControlTextarea1">Notes</label>
-                                <textarea class="form-control" id="exampleFormControlTextarea1" name="notes"
-                                    rows="3"></textarea>
-                            </div>
-
 
 
                         </div>
@@ -117,4 +105,80 @@
 <!-- /.content -->
 
 
+@endsection
+@section('script')
+<!-- Bootstrap4 Duallistbox -->
+<script src="{{asset('control')}}/plugins/bootstrap4-duallistbox/jquery.bootstrap-duallistbox.min.js"></script>
+<!-- InputMask -->
+<script src="{{asset('control')}}/plugins/moment/moment.min.js"></script>
+<script src="{{asset('control')}}/plugins/inputmask/min/jquery.inputmask.bundle.min.js"></script>
+<!-- date-range-picker -->
+<script src="{{asset('control')}}/plugins/daterangepicker/daterangepicker.js"></script>
+<!-- bootstrap color picker -->
+<script src="{{asset('control')}}/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js"></script>
+<!-- Tempusdominus Bootstrap 4 -->
+<script src="{{asset('control')}}/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+<!-- Bootstrap Switch -->
+<script src="{{asset('control')}}/plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
+<!-- AdminLTE App -->
+<script src="{{asset('control')}}/dist/js/adminlte.min.js"></script>
+
+<!-- Page script -->
+<script>
+    $(function () {
+
+        //Date range picker
+        $('#reservation').daterangepicker()
+        //Date range picker with time picker
+        $('#reservationtime').daterangepicker({
+            timePicker: true,
+            timePickerIncrement: 30,
+            locale: {
+                format: 'MM/DD/YYYY hh:mm A'
+            }
+        })
+        //Date range as a button
+        $('#daterange-btn').daterangepicker({
+                ranges: {
+                    'Today': [moment(), moment()],
+                    'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+                    'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+                    'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+                    'This Month': [moment().startOf('month'), moment().endOf('month')],
+                    'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1,
+                        'month').endOf('month')]
+                },
+                startDate: moment().subtract(29, 'days'),
+                endDate: moment()
+            },
+            function (start, end) {
+                $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format(
+                    'MMMM D, YYYY'))
+            }
+        )
+
+        //Timepicker
+        $('#timepicker').datetimepicker({
+            format: 'LT'
+        })
+
+        //Bootstrap Duallistbox
+        $('.duallistbox').bootstrapDualListbox()
+
+        //Colorpicker
+        $('.my-colorpicker1').colorpicker()
+        //color picker with addon
+        $('.my-colorpicker2').colorpicker()
+
+        $('.my-colorpicker2').on('colorpickerChange', function (event) {
+            $('.my-colorpicker2 .fa-square').css('color', event.color.toString());
+        });
+
+        $("input[data-bootstrap-switch]").each(function () {
+            $(this).bootstrapSwitch('state', $(this).prop('checked'));
+        });
+
+    })
+
+</script>
 @endsection

@@ -107,6 +107,14 @@
                     </p>
                 </a>
             </li>
+             <li class="nav-item">
+                    <a href="{{url('admin/statistics')}}" class="nav-link">
+                        <i class="nav-icon fas fa-chart-line"></i>
+                        <p>
+                            Statistics
+                        </p>
+                    </a>
+                </li>
             {{-- <li class="nav-item">
                     <a href="{{url('areas')}}" class="nav-link">
             <i class="nav-icon fas fa-map-marker-alt"></i>
