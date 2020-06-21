@@ -18,7 +18,13 @@ class PatientController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $data = Patient::latest()->get();
+            if((Auth::user()->role) == '2'){
+                $data = Patient::latest()->get();
+            }else{
+                $data = Patient::where('doctor_id',Auth::user()->id)->get();
+            }
+
+
             return Datatables::of($data)
                     ->addIndexColumn()
 

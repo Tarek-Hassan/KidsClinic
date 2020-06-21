@@ -10,7 +10,7 @@ $factory->define(Patient::class, function (Faker $faker) {
         'name'=> $faker->word,
         'age'=>$faker->numberBetween(1,3),
         'blood_type'=>$faker->numberBetween(0,8),
-        'birth_type'=>$faker->numberBetween(0,3),
+        'birth_type'=>$faker->numberBetween(0,2),
         'number'=>$faker->numberBetween(1,5),
         'dad_job'=>$faker->word,
         'mum_job'=>$faker->word,

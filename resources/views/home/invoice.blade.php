@@ -11,7 +11,6 @@
                     <i class="fas fa-baby fa-2x"></i> Kids Clinic.
                     <small class="float-right">Date: {{now()}}</small>
                 </a>
-
             </h4>
         </div>
         <div class="card-body">

@@ -12,7 +12,7 @@ class HomePageController extends Controller
 {
     //
     public function invoice(Request $request) {
-        $id=Auth::user()->id;
+        $id=Auth::user()->patient_id;
         $patient=Patient::findOrFail($id);
             if ($request->ajax()) {
                 $data = Visit::where('patient_id',$id)->get();
@@ -20,11 +20,7 @@ class HomePageController extends Controller
                 
                 return Datatables($data)
                         ->addColumn('date', function($row){
-                        if( $row->created_at){
                             return $row->created_at->format('D, dMY, h:m a');
-                        }else{
-                            return 'Unkown Date';
-                        }
                         })
                         ->addColumn('patient_id', function($row){
                             return $row->patient->name;
@@ -32,6 +28,14 @@ class HomePageController extends Controller
                         ->addColumn('doctor_id', function($row){
                             return $row->user->name;
                         })
+                        ->addColumn('action', function($row){
+                            $button = '&nbsp;&nbsp;&nbsp;<a href="/admin/visits/'.$row->id.'/edit" class="edit btn btn-secondary btn-sm m-1">Edit</a>';
+                            $button .= '&nbsp;&nbsp;&nbsp;<a  data-id="'.$row->id.'" class="del btn btn-danger btn-sm m-1 "  data-toggle="modal"data-target="#delete">Delete</a>';
+                            return $button;
+                        })
+    
+                        ->rawColumns(['action'])
+    
                         ->make(true);
             }
 

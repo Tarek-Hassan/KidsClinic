@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name','avatar', 'email', 'password','role','mobile','national_id'
+        'name','avatar', 'email', 'password','role','mobile','national_id','patient_id','bio'
     ];
 
     public function isAdmin(){
@@ -39,10 +39,15 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-    
+    // each Doctor hasmany patient
     public function patients()
     {
-        return $this->hasMany('App\Patient');
+        return $this->hasMany('App\Patient','doctor_id');
+    }
+    
+    // each User hasone  patient(email to one patient)
+    public function patient(){
+        return  $this->belongsTo('App\Patient','patient_id');
     }
 
 

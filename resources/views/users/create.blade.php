@@ -1,6 +1,12 @@
 @extends('admin.index')
 @section('title','Users')
 @section('section_title','Create User')
+@section('css')
+<!-- Select2 -->
+<link rel="stylesheet" href="{{asset('control')}}/plugins/select2/css/select2.min.css">
+<link rel="stylesheet" href="{{asset('control')}}/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+
+@endsection
 @section('content')
 <!-- Main content -->
 <section class="content">
@@ -16,7 +22,7 @@
                     </div>
                     <!-- /.card-header -->
                     <!-- form start -->
-        
+
                     <form method="POST" action="{{route('users.store')}}" enctype="multipart/form-data">
                         @csrf
                         <div class="card-body">
@@ -46,16 +52,30 @@
                                 </select>
                             </div>
 
+                            <div class="form-group  ">
+                                <label>Patients</label>
+                                <select class="form-control select2 mb-2" name="patient_id" >
+                                    @foreach($patients as $patient)
+                                    <option value="{{$patient->id}}">{{$patient->name}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                                  <div class="form-group">
+                                <label for="exampleFormControlTextarea1">Bio.</label>
+                                <textarea class="form-control" id="exampleFormControlTextarea1" name="bio"
+                                    rows="3"></textarea>
+                            </div>
+
                             <div class="form-group">
                                 <label for="exampleInputaddress">Mobile</label>
-                                <input type="number" name="mobile" maxlength="14" class="form-control" id="exampleInputMobile"
-                                    placeholder="Enter Mobile">
+                                <input type="number" name="mobile" maxlength="14" class="form-control"
+                                    id="exampleInputMobile" placeholder="Enter Mobile">
                             </div>
 
                             <div class="form-group">
                                 <label for="exampleInputaddress">National ID</label>
-                                <input type="number" name="national_id" maxlength="14" class="form-control" id="exampleInputnational"
-                                    placeholder="Enter National_ID">
+                                <input type="number" name="national_id" maxlength="14" class="form-control"
+                                    id="exampleInputnational" placeholder="Enter National_ID">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputaddress">Password</label>
@@ -64,8 +84,8 @@
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputaddress">password_confirmation</label>
-                                <input type="password" name="password_confirmation" class="form-control" id="exampleInputpassword"
-                                    placeholder="REpeat Your password">
+                                <input type="password" name="password_confirmation" class="form-control"
+                                    id="exampleInputpassword" placeholder="REpeat Your password">
                             </div>
 
                         </div>
@@ -90,5 +110,22 @@
 </section>
 <!-- /.content -->
 
+
+@endsection
+@section('script')
+<!-- Select2 -->
+<script src="{{asset('control')}}/plugins/select2/js/select2.full.min.js"></script>
+<script>
+    $(function () {
+        //Initialize Select2 Elements
+        $('.select2').select2()
+
+        //Initialize Select2 Elements
+        $('.select2bs4').select2({
+            theme: 'bootstrap4'
+        })
+    });
+
+</script>
 
 @endsection

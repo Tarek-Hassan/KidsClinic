@@ -10,7 +10,7 @@ $factory->define(Schedule::class, function (Faker $faker) {
         //
         'title'=>$faker->title,
         'color'=>$faker->hexcolor,
-        'allDay'=>$faker->numberBetween(0,2),
+        'allDay'=>$faker->numberBetween(0,1),
         'start'=>$faker->dateTime,
         'end'=>$faker->dateTime,
         

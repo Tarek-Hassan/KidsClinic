@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 use Yajra\DataTables\DataTables ; 
 use App\User;
+use App\Patient;
 use App\Http\Requests\User\UpdateUserRequest;
 use App\Http\Requests\User\StoreUserRequest;
 
@@ -14,7 +15,9 @@ class UserController extends Controller
 {
     
     public function index(Request $request)
-    {
+    { 
+        // dd(User::all());
+        // // dd(User::where('id',2)->with('patients')->get());
         if ($request->ajax()) {
             $data = User::latest()->get();
             return Datatables::of($data)
@@ -23,11 +26,6 @@ class UserController extends Controller
                     ->addColumn('avatar', function($row){
 
                         return "/storage/$row->avatar";
-                            // if( strpos( $row->avatar, 'images' ) !== false) {
-                            // }
-                            // else{
-                            // }
-                            // return $row->avatar;
                         })
 
                     ->addColumn('role', function($row){ 
@@ -56,7 +54,8 @@ class UserController extends Controller
 
     
     public function create() {
-        return view('users.create');
+        $patients=Patient::all();
+        return view('users.create',compact('patients'));
     }   
 
     
@@ -73,7 +72,8 @@ class UserController extends Controller
     
     public function edit(string $id) {
         $user=User::findOrFail($id);
-        return view('users.edit', compact('user'));
+        $patients=Patient::all();
+        return view('users.edit', compact('user','patients'));
     }
     
     public function update(UpdateUserRequest $request, $id) {

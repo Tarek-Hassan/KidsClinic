@@ -13,7 +13,7 @@ $factory->define(Visit::class, function (Faker $faker) {
         'length'=> rand(0, 100) / 10,
         'head_circ'=> rand(0, 100) / 10,
         'notes'=>$faker->word,
-        'patient_id'=>$faker->numberBetween(1,11),
-        'doctor_id'=>$faker->numberBetween(1,6),
+        'patient_id'=>$faker->numberBetween(1,9),
+        'doctor_id'=>$faker->numberBetween(1,5),
     ];
 });
