@@ -87,6 +87,15 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
     6-php artisan migrate
     7-php artisan db:seed                // to insert admin Details in db
     8-php artisan serve
+## DashBoard ->admin
+    UserName:admin@admin.com
+    Password:123456789
+## DashBoard ->doctor
+    UserName:doctor@doctor.com
+    Password:123456789
+## DashBoard ->user
+    UserName:user@user.com
+    Password:123456789
 ## Packages
     1-yajra/laravel-datatables-oracle
     2-php artisan storage:link
