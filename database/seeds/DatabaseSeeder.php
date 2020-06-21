@@ -4,7 +4,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
-use Faker\Generator as Faker;
+// use Faker\Generator as Faker;
 
 class DatabaseSeeder extends Seeder
 {
@@ -13,7 +13,7 @@ class DatabaseSeeder extends Seeder
      *
      * @return void
      */
-    public function run(Faker $faker)
+    public function run( )
     {
         DB::table('users')->insert([
             'name' => 'admin',
