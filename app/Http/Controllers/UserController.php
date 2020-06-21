@@ -22,12 +22,12 @@ class UserController extends Controller
 
                     ->addColumn('avatar', function($row){
 
-                            if( strpos( $row->avatar, 'images' ) !== false) {
-                                return "/storage/$row->avatar";
-                            }
-                            else{
-                                return $row->avatar;
-                            }
+                        return "/storage/$row->avatar";
+                            // if( strpos( $row->avatar, 'images' ) !== false) {
+                            // }
+                            // else{
+                            // }
+                            // return $row->avatar;
                         })
 
                     ->addColumn('role', function($row){ 
@@ -64,40 +64,45 @@ class UserController extends Controller
     // public function store(Request $request) {
 
         $request['avatar']=Storage::disk('public')->put('images',$request->profile);
-        $request['password']=Hash::make($request->password);
         $user=User::create($request->all());
         // $user->createToken($request->email)->plainTextToken;
         return redirect()->route('users.index');
-    
-    }   
         
+    }   
+    
     
     public function edit(string $id) {
         $user=User::findOrFail($id);
         return view('users.edit', compact('user'));
     }
-
+    
     public function update(UpdateUserRequest $request, $id) {
-    // public function update(Request $request, $id) {
-
-        if($request->profile){
-            Storage::disk('public')->delete($request->oldimg);
-            $request['avatar']=Storage::disk('public')->put('images',$request->profile);
-        }else{
-            $request['avatar']=$request->oldimg;
+        // public function update(Request $request, $id) {
+            $request['password']=Hash::make($request->password);
+            
+            if($request->profile){
+                // this to skip delete the defualt image
+                if($request->oldimg !="images/avatar.png"){ 
+                    Storage::disk('public')->delete($request->oldimg);
+                }
+                $request['avatar']=Storage::disk('public')->put('images',$request->profile);
+            }else{
+                $request['avatar']=$request->oldimg;
+            }
+            
+            $userUpdate = User::findOrFail($id);
+            $userUpdate->update($request->all());
+            $userUpdate->fresh();
+            return redirect()->route('users.index');
         }
-
-        $userUpdate = User::findOrFail($id);
-        $userUpdate->update($request->all());
-        $userUpdate->fresh();
-        return redirect()->route('users.index');
-    }
-
-    public function destroy($id) {
-        $users=User::find($id);
-        Storage::disk('public')->delete($users->avatar);
-        $users->delete();
-        return redirect()->back();
+        
+        public function destroy($id) {
+            $users=User::find($id);
+            if($users->avatar !="images/avatar.png"){
+                Storage::disk('public')->delete($users->avatar);
+            }
+            $users->delete();
+            return redirect()->back();
     }
 
 

@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -13,15 +15,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Auth::routes();
+
+//  User_DashBoard
+
+Route::prefix('')->middleware(['auth',])->group(function(){
+    Route::get('', 'HomePageController@index')->name('home');
+    Route::get('invoice', 'HomePageController@invoice')->name('invoice');
 });
 
-
-Auth::routes();
-Route::prefix('/admin')->middleware(['auth',])->group(function(){
+//  Admin_DashBoard
+Route::prefix('/admin')->middleware(['auth','admin',])->group(function(){
     // Routes For User
-    Route::get('', 'HomeController@admin');
+    Route::get('', 'StatisticController@index');
     // Admin => UserPAGE
      Route::prefix('/users')->group(function(){
         Route::get('', 'UserController@index')->name('users.index');
@@ -66,7 +72,7 @@ Route::prefix('/admin')->middleware(['auth',])->group(function(){
         Route::post('/update', 'CalenderController@update');
         Route::post('/delete', 'CalenderController@destroy');
     });
-        // Admin => Statistics PAGE
+        //Admin => Statistics PAGE
     Route::prefix('/statistics')->group(function(){
         Route::get('', 'StatisticController@index')->name('statistics.index');
         Route::get('/create', 'StatisticController@create')->name("statistics.create");

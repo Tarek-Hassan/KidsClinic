@@ -1,6 +1,6 @@
 @extends('admin.index')
 @section('title','Statistics')
-@section('section_title','Statistics')
+{{-- @section('section_title','Statistics') --}}
 @section('content')
 <!-- Main content -->
 <section class="content">

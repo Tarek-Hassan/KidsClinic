@@ -16,32 +16,26 @@
                 <form action="{{route('register')}}" method="post">
 
                     @csrf
+                    {{-- 
+                                     <div class="form-group">
+                                <label for="exampleInputaddress">name</label>
+                                <input type="text" name="name" class="form-control" id="exampleInputname"
+                                    placeholder="Enter Your Name">
+                            </div>
+                     --}}
 
-            <div class="row mb-3">
-                <div class="col input-group">
-                    <input type="text" class="form-control m-input @error('first_name') is-invalid @enderror"
-                        id="first_name" type="text" value="{{ old('first_name') }}" required autofocus
-                        placeholder="First Name" name="first_name">
-                    <div class="input-group-append">
-                        <div class="input-group-text">
-                            <span class="fas fa-user"></span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col input-group">
-                    <input type="text" class="form-control m-input @error('last_name') is-invalid @enderror"
-                        id="last_name" type="text" value="{{ old('last_name') }}" required autofocus
-                        placeholder="Last Name" name="last_name">
-                    <div class="input-group-append">
-                        <div class="input-group-text">
-                            <span class="fas fa-user"></span>
-                        </div>
+            <div class="input-group mb-3">
+                <input id="email" type="text" class="form-control m-input @error('name') is-invalid @enderror"
+                    placeholder="name" name="name" value="{{ old('name') }}"  autocomplete="name">
+                <div class="input-group-append">
+                    <div class="input-group-text">
+                        <span class="fas fa-envelope"></span>
                     </div>
                 </div>
             </div>
             <div class="input-group mb-3">
                 <input id="email" type="email" class="form-control m-input @error('email') is-invalid @enderror"
-                    placeholder="Email" name="email" value="{{ old('email') }}" required autocomplete="email">
+                    placeholder="Email" name="email" value="{{ old('email') }}"  autocomplete="email">
                 <div class="input-group-append">
                     <div class="input-group-text">
                         <span class="fas fa-envelope"></span>
@@ -50,7 +44,7 @@
             </div>
             <div class="input-group mb-3">
                 <input class="form-control m-input @error('password') is-invalid @enderror" id="password"
-                    type="password" placeholder="Password" name="password" required autocomplete="new-password">
+                    type="password" placeholder="Password" name="password"  autocomplete="new-password">
                 <div class="input-group-append">
                     <div class="input-group-text">
                         <span class="fas fa-lock"></span>
@@ -59,7 +53,7 @@
             </div>
             <div class="input-group mb-3">
                 <input class="form-control m-input m-login__form-input--last" id="password-confirm" type="password"
-                    placeholder="Confirm Password" name="password_confirmation" required autocomplete="new-password">
+                    placeholder="Confirm Password" name="password_confirmation"  autocomplete="new-password">
                 <div class="input-group-append">
                     <div class="input-group-text">
                         <span class="fas fa-lock"></span>

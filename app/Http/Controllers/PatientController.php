@@ -25,7 +25,6 @@ class PatientController extends Controller
                     ->addColumn('blood_type', function($row){
                         return $row->bloodType();
                     })
-                    
                     ->addColumn('date', function($row){
                         if( $row->created_at){
                             return $row->created_at->format('D, dMY, h:m a');

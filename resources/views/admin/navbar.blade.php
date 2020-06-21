@@ -5,11 +5,9 @@
             <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-            <a href="index3.html" class="nav-link">Home</a>
+            <a href="{{route('home')}}" class="nav-link">Home</a>
         </li>
-        <li class="nav-item d-none d-sm-inline-block">
-            <a href="#" class="nav-link">Contact</a>
-        </li>
+
     </ul>
     <!-- SEARCH FORM -->
     <form class="form-inline ml-3">
@@ -32,35 +30,35 @@
                 <i class="far fa-bell nav-icon mr-3"></i>
                 @if(auth()->user()->unreadNotifications->count())
                 <span class="badge badge-warning navbar-badge">{{ auth()->user()->unreadNotifications->count() }}
-                </span>
-                @endif
+        </span>
+        @endif
+        </a>
+        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+            <a href="{{route('mark')}}"><span class="dropdown-item dropdown-header">
+                    <i class="fas fa-envelope mr-2"></i>{{ auth()->user()->unreadNotifications->count() }}
+                    MarkAllAsRead</span></a>
+
             </a>
-            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                <a href="{{route('mark')}}"><span class="dropdown-item dropdown-header">
-                        <i class="fas fa-envelope mr-2"></i>{{ auth()->user()->unreadNotifications->count() }}
-                        MarkAllAsRead</span></a>
+            dd(var_dump(auth()->user()->unreadNotifications))
+            @foreach(auth()->user()->unreadNotifications as $notification)
 
-                </a>
-                dd(var_dump(auth()->user()->unreadNotifications))
-                @foreach(auth()->user()->unreadNotifications as $notification)
+            <div class="dropdown-divider"></div>
+            <a href="#" class="dropdown-item bg-info">
+                {{ $notification->data['data'] }}
 
-                <div class="dropdown-divider"></div>
-                <a href="#" class="dropdown-item bg-info">
-                    {{ $notification->data['data'] }}
+                <span class="float-right text-muted text-sm">3 mins</span>
+            </a>
+            @endforeach
 
-                    <span class="float-right text-muted text-sm">3 mins</span>
-                </a>
-                @endforeach
+            @foreach(auth()->user()->readNotifications as $read)
+            <div class="dropdown-divider"></div>
+            <a href="#" class="dropdown-item">
+                {{ $read->data['data'] }}
+            </a>
 
-                @foreach(auth()->user()->readNotifications as $read)
-                <div class="dropdown-divider"></div>
-                <a href="#" class="dropdown-item">
-                    {{ $read->data['data'] }}
-                </a>
-
-                @endforeach
-                <div class="dropdown-divider"></div>
-            </div>
+            @endforeach
+            <div class="dropdown-divider"></div>
+        </div>
         </li> --}}
         <li class="nav-item">
             <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#"><i

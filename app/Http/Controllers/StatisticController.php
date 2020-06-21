@@ -21,10 +21,8 @@ class StatisticController extends Controller
          $patientName=Patient::find(array_keys($topOrder->toArray()))->pluck('name');
          // to get the send number of Ordr for each user in topOrder array 
          $countPatient=array_values($topOrder->toArray());
-         
      // @Male - Female Attendance​_pie_Chart
         //  $visits = Visit::groupBy('patient_id')->selectRaw("COUNT(*) as count")->pluck('count');
-
         //  return view('statistics.index',compact('visits',));
          return view('statistics.index',compact('countPatient','patientName'));
      }
