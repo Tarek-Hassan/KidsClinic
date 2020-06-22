@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="{{asset('home')}}/css/tooplate-style.css">
 @endsection
 {{-- stat NavBar --}}
-<nav class="navbar navbar-expand-lg navbar-dark bg-info navbar-fixed-top">
+{{-- <nav class="navbar navbar-expand-lg navbar-dark bg-info navbar-fixed-top">
     <a class="navbar-brand" href="#"><i class="fas fa-baby "></i> Kids Clinic.</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -23,16 +23,16 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link " href="#google-map">Contact</a>
+                <a class="nav-link " href="/#google-map">Contact</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link " href="#about">About Us</a>
+                <a class="nav-link " href="/#about">About Us</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link " href="#team">Doctors</a>
+                <a class="nav-link " href="/#team">Doctors</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link " href="#news">News</a>
+                <a class="nav-link " href="/#news">News</a>
             </li>
         </ul>
     @if (Auth::user()->role !=0)
@@ -74,7 +74,7 @@
             @endguest
         </ul>
     </div>
-</nav>
+</nav> --}}
 {{-- End NavBar --}}
 @section('content')
 
@@ -383,12 +383,7 @@
 
         </div>
     </div>
-    <div class="col-md-2 col-sm-2 text-align-center " style="float:right">
-        <div class="angle-up-btn ">
-            <a href="#top" class="smoothScroll wow fadeInUp bg-info" data-wow-delay="1.2s"><i
-                    class="fa fa-angle-up"></i></a>
-        </div>
-    </div>
+
 </footer>
 </body>
 @endsection

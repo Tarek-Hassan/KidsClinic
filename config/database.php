@@ -14,9 +14,9 @@ return [
     | you may use many connections at once using the Database library.
     |
     */
-    $DATABASE_URL=parse_url(' postgres://xapmnxbjorpzgf:c6f334df8d076b9e7b5ba6712443b8dff9b8fcb1c679725cbdf97a53efc1cc02@ec2-18-210-51-239.compute-1.amazonaws.com:5432/d7q6pmignup2j'),
-    'default' => env('DB_CONNECTION', 'pgsql'),
-    // 'default' => env('DB_CONNECTION', 'mysql'),
+    // $DATABASE_URL=parse_url(' postgres://xapmnxbjorpzgf:c6f334df8d076b9e7b5ba6712443b8dff9b8fcb1c679725cbdf97a53efc1cc02@ec2-18-210-51-239.compute-1.amazonaws.com:5432/d7q6pmignup2j'),
+    // 'default' => env('DB_CONNECTION', 'pgsql'),
+    'default' => env('DB_CONNECTION', 'mysql'),
 
     /*
     |--------------------------------------------------------------------------

@@ -22,6 +22,7 @@ Auth::routes(['register' => false]);
 Route::prefix('')->middleware(['auth',])->group(function(){
     Route::get('', 'HomePageController@index')->name('home');
     Route::get('invoice', 'HomePageController@invoice')->name('invoice');
+    Route::get('articles', 'HomePageController@articles')->name('articles');
 });
 
 //  Admin_DashBoard
@@ -82,5 +83,24 @@ Route::prefix('/admin')->middleware(['auth','admin',])->group(function(){
         Route::put('/{statistics}', 'StatisticController@update')->name("statistics.update");
         Route::delete('/{statistics}', 'StatisticController@destroy')->name("statistics.destroy");
 });
+        //Admin => articles PAGE
+    Route::prefix('/articles')->group(function(){
+        Route::get('', 'ArticleController@index')->name('articles.index');
+        Route::get('/create', 'ArticleController@create')->name("articles.create");
+        Route::post('', 'ArticleController@store')->name("articles.store");
+        Route::get('/{articles}', 'ArticleController@show')->name("articles.show");
+        Route::get('/{articles}/edit', 'ArticleController@edit')->name("articles.edit");
+        Route::put('/{articles}', 'ArticleController@update')->name("articles.update");
+        Route::delete('/{articles}', 'ArticleController@destroy')->name("articles.destroy");
+});
+
+    Route::prefix('/about')->group(function(){
+        Route::get('', 'AboutController@index')->name('about.index');
+        Route::put('', 'AboutController@update')->name("about.update");
+    });
+    Route::prefix('/setting')->group(function(){
+        Route::get('', 'SettingController@index')->name('setting.index');
+        Route::put('', 'SettingController@update')->name("setting.update");
+    });
         
 });

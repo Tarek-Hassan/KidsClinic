@@ -85,7 +85,7 @@
                             <div class="form-group">
                                 <label for="exampleInputaddress">password_confirmation</label>
                                 <input type="password" name="password_confirmation" class="form-control"
-                                    id="exampleInputpassword" placeholder="REpeat Your password">
+                                    id="exampleInputpasswordcon" placeholder="REpeat Your password">
                             </div>
 
                         </div>

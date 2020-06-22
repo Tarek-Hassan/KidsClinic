@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables ; 
 use App\Patient;
 use App\Visit;
+use App\Article;
 use Illuminate\Support\Facades\Auth;
 
 class HomePageController extends Controller
@@ -46,5 +47,10 @@ class HomePageController extends Controller
     
     public function index(){
         return view('home.home');
+    }
+    
+    public function articles(){
+        $articles=Article::all();
+        return view('home.articles',compact('articles'));
     }
 }

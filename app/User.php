@@ -49,6 +49,11 @@ class User extends Authenticatable
     public function patient(){
         return  $this->belongsTo('App\Patient','patient_id');
     }
+    // each doctor  hasmany Article
+    public function articles()
+    {
+        return $this->hasMany('App\Article','doctor_id');
+    }
 
 
 

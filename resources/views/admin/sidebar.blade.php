@@ -22,166 +22,95 @@
         <!-- Sidebar Menu -->
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                {{-- <li class="nav-item has-treeview">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-notes-medical"></i>
+
+                <li class="nav-item ">
+                    <a href="{{url('admin/patients')}}" class="nav-link">
+                        <i class="nav-icon fas fa-user-md"></i>
                         <p>
-                            Pharmacies
-                            <i class="right fas fa-angle-left"></i>
+                            Patients
+
                         </p>
                     </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="{{url('pharmacies')}}" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>pharmacy</p>
-                </a>
                 </li>
-                <!-- <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>ban</p>
-                            </a>
-                        </li> -->
-            </ul>
-            </li>
+                <li class="nav-item">
+                    <a href="{{url('admin/visits')}}" class="nav-link">
+                        <i class="nav-icon fas fa-receipt"></i>
+                        <p>
+                            Visists
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{url('admin/schedule')}}" class="nav-link">
 
-            <li class="nav-item">
-                <a href="{{url('orders')}}" class="nav-link">
+                        <i class="nav-icon far fa-calendar-alt"></i>
 
-                    <i class="nav-icon fas fa-receipt"></i>
-                    <p>
-                        Order
-                    </p>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="{{url('medicines')}}" class="nav-link">
-                    <i class="nav-icon fas fa-capsules"></i>
-                    <p>
-                        Medicines,
-                    </p>
-                </a>
-            </li> --}}
-            @auth
+                        <p>
+                            Schedule
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{url('admin/statistics')}}" class="nav-link">
+                        <i class="nav-icon fas fa-chart-pie"></i>
+                        <p>
+                            Statistics
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{url('admin/articles')}}" class="nav-link">
+                        <i class="nav-icon fas fa-newspaper"></i>
+                        <p>
+                            Articles
+                        </p>
+                    </a>
+                </li>
+                {{-- to Only Admin --}}
+                @if(Auth::user()->role == '2')
 
-            <li class="nav-item ">
-                <a href="{{url('admin/patients')}}" class="nav-link">
-                    <i class="nav-icon fas fa-user-md"></i>
-                    <p>
-                        Patients
+                <li class="nav-item ">
+                    <a href="{{url('admin/users')}}" class="nav-link">
+                        <i class="nav-icon fas fa-users"></i>
+                        <p>
+                            Users
 
-                    </p>
-                </a>
-            </li>
-            @if(Auth::user()->role == '2')
+                        </p>
+                    </a>
 
-            <li class="nav-item ">
-                <a href="{{url('admin/users')}}" class="nav-link">
-                    <i class="nav-icon fas fa-users-cog"></i>
-                    <p>
-                        Users
+                </li>
+                <li class="nav-item">
+                    <a href="{{url('admin/about')}}" class="nav-link">
+                        <i class="nav-icon fas fa-info-circle"></i>
+                        <p>
+                            About US
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{url('admin/setting')}}" class="nav-link">
 
-                    </p>
-                </a>
+                        <i class="nav-icon fas fa-cogs"></i>
+                        <p>
+                            Setting
+                        </p>
+                    </a>
+                </li>
+                @endif
 
-            </li>
-            @endif
-            <li class="nav-item">
-                <a href="{{url('admin/visits')}}" class="nav-link">
-                    <i class="nav-icon fas fa-receipt"></i>
-                    <p>
-                        Visists
-                    </p>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="{{url('admin/schedule')}}" class="nav-link">
-
-                    <i class="nav-icon fa fa-calendar" aria-hidden="true"></i>
-                    <p>
-                        Schedule
-                    </p>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="{{url('admin/statistics')}}" class="nav-link">
-                    <i class="nav-icon fas fa-chart-line"></i>
-                    <p>
-                        Statistics
-                    </p>
-                </a>
-            </li>
-            {{-- <li class="nav-item">
-                    <a href="{{url('areas')}}" class="nav-link">
-            <i class="nav-icon fas fa-map-marker-alt"></i>
-            <p>
-                Areas
-            </p>
-            </a>
-            </li> --}}
-            @endauth
-            {{-- <li class="nav-item">
-                    <a href="{{url('address')}}" class="nav-link">
-            <i class="nav-icon fas fa-street-view"></i>
-            <p>
-                User Addresses
-            </p>
-            </a>
-            </li>
-
-            <li class="nav-item">
-                <a href="#" class="nav-link">
-                    <i class="nav-icon fas fa-donate"></i>
-                    <p>
-                        Revenue
-                    </p>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="{{url('statistics')}}" class="nav-link">
-                    <i class="nav-icon fas fa-chart-line"></i>
-                    <p>
-                        Statistics
-                    </p>
-                </a>
-            </li>
-            <li class="nav-item has-treeview">
-                <a href="#" class="nav-link">
-                    <i class="nav-icon fab fa-cc-stripe"></i>
-                    <p>
-                        ​ Stripe_Payments
-                        <i class="right fas fa-angle-left"></i>
-                    </p>
-                </a>
-                <ul class="nav nav-treeview">
-                    <li class="nav-item">
-                        <a href="{{url('payment/create')}}" class="nav-link">
-
-                            <i class="far fa-circle nav-icon"></i>
-                            <p>payment</p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{{url('payment')}}" class="nav-link">
-                            <i class="far fa-circle nav-icon"></i>
-                            <p>All_Transactions</p>
-                        </a>
-                    </li>
-                </ul>
-            </li> --}}
-            <li class="nav-item">
-                <div class="user-panel mt-3 pb-3 mb-3 d-flex"></div>
-                <a href="{{ route('logout') }}"
-                    onclick="event.preventDefault();document.getElementById('logout-form').submit();" class="nav-link">
-                    <!-- <i class="nav-icon fas fa-portal-exit"></i> -->
-                    <i class="nav-icon fas fa-sign-out-alt"></i>
-                    <p>{{ __('Logout') }}</p>
-                </a>
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                    @csrf
-                </form>
-            </li>
+                <li class="nav-item">
+                    <div class="user-panel mt-3 pb-3 mb-3 d-flex"></div>
+                    <a href="{{ route('logout') }}"
+                        onclick="event.preventDefault();document.getElementById('logout-form').submit();"
+                        class="nav-link">
+                        <!-- <i class="nav-icon fas fa-portal-exit"></i> -->
+                        <i class="nav-icon fas fa-sign-out-alt"></i>
+                        <p>{{ __('Logout') }}</p>
+                    </a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
+                </li>
             </ul>
         </nav>
         <!-- /.sidebar-menu -->
