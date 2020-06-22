@@ -9,7 +9,7 @@
         </li>
 
     </ul>
-    <!-- SEARCH FORM -->
+    {{-- <!-- SEARCH FORM -->
     <form class="form-inline ml-3">
         <div class="input-group input-group-sm">
             <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
@@ -19,7 +19,7 @@
                 </button>
             </div>
         </div>
-    </form>
+    </form> --}}
 
     <!-- Right navbar links -->
     @auth
@@ -60,10 +60,7 @@
             <div class="dropdown-divider"></div>
         </div>
         </li> --}}
-        <li class="nav-item">
-            <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#"><i
-                    class="fas fa-th-large"></i></a>
-        </li>
+        
     </ul>
     @endauth
 </nav>
