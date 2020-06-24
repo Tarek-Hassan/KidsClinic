@@ -19,11 +19,11 @@
         <!-- /.user-block -->
         {{-- <div class="card mb-3" style="max-width: 540px;"> --}}
         <div class="row  my-3">
-        @if($article->image)
+            @if($article->image)
             <div class="col-md-4">
                 <img src="/storage/{{$article->image}}" class="card-img" alt="...">
             </div>
-        @endif
+            @endif
             <div class="col-md-8">
                 <div class="card-body">
                     <h5 class="card-title">{{$article->title}}</h5>
@@ -58,8 +58,11 @@
     <!-- /.post -->
 
     @endforeach
-
-
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+            {{ $articles->links() }}
+        </ul>
+    </nav>
 </div>
 
 </body>
