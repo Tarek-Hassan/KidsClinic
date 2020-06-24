@@ -4,7 +4,7 @@ namespace App\Console;
 
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
-
+use App\Console\Commands\ScheduleCommand;
 class Kernel extends ConsoleKernel
 {
     /**
@@ -13,7 +13,8 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        //
+       
+        ScheduleCommand::class,
     ];
 
     /**
@@ -24,7 +25,11 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')->hourly();
+        // $schedule->command('schedule:notiy')->daily();
+        $schedule->command('schedule:notiy')->everyMinute();
+        // $schedule->command('queue:work')->dailyAt('9:00');
+        $schedule->command('queue:work')->everyMinute();
+        // $schedule->command('schedule:notiy')->everyMinute();
     }
 
     /**

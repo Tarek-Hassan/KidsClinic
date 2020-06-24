@@ -2,10 +2,8 @@
 @section('title','Articles')
 @section('section_title','Create Article')
 @section('css')
-<!-- Select2 -->
-<link rel="stylesheet" href="{{asset('control')}}/plugins/select2/css/select2.min.css">
-<link rel="stylesheet" href="{{asset('control')}}/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
-
+      <!-- summernote -->
+  <link rel="stylesheet" href="{{asset('control')}}/plugins/summernote/summernote-bs4.css">
 @endsection
 @section('content')
 <!-- Main content -->
@@ -38,13 +36,13 @@
                                     placeholder="Enter Your title">
                             </div>
 
-                                                           <div class="form-group">
-                            <label for="exampleFormControlTextarea1">Body</label>
-                                <textarea class="form-control" id="exampleFormControlTextarea1" name="body"
+                                             <div class="form-group">
+                                <label for="exampleFormControlTextarea1">Body</label>
+                                <textarea class="textarea" id="exampleFormControlTextarea1" name="body"
                                     rows="3"></textarea>
                             </div>
 
-                           
+
                         </div>
                         <!-- /.card-body -->
                         <div class="card-footer">
@@ -70,19 +68,13 @@
 
 @endsection
 @section('script')
-<!-- Select2 -->
-<script src="{{asset('control')}}/plugins/select2/js/select2.full.min.js"></script>
+<!-- Summernote -->
+<script src="{{asset('control')}}/plugins/summernote/summernote-bs4.min.js"></script>
 <script>
-    $(function () {
-        //Initialize Select2 Elements
-        $('.select2').select2()
-
-        //Initialize Select2 Elements
-        $('.select2bs4').select2({
-            theme: 'bootstrap4'
-        })
-    });
-
+  $(function () {
+    // Summernote
+    $('.textarea').summernote()
+  })
 </script>
-
+    
 @endsection

@@ -16,6 +16,7 @@ class ArticleController extends Controller
             $data = Article::latest()->get();
             return Datatables::of($data)
                     ->addIndexColumn()
+
                     ->addColumn('image', function($row){
                         return "/storage/$row->image";
                         })
@@ -42,7 +43,10 @@ class ArticleController extends Controller
     
     public function store(Request $request) {
         $request['doctor_id']=Auth::user()->id;
-        $request['image']=Storage::disk('public')->put('images',$request->profile);
+        if($request->profile){
+
+            $request['image']=Storage::disk('public')->put('images',$request->profile);
+        }
         $article=Article::create($request->all());
         return redirect()->route('articles.index');
         

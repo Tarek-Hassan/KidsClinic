@@ -19,13 +19,15 @@
         <!-- /.user-block -->
         {{-- <div class="card mb-3" style="max-width: 540px;"> --}}
         <div class="row  my-3">
+        @if($article->image)
             <div class="col-md-4">
                 <img src="/storage/{{$article->image}}" class="card-img" alt="...">
             </div>
+        @endif
             <div class="col-md-8">
                 <div class="card-body">
                     <h5 class="card-title">{{$article->title}}</h5>
-                    <p class="card-text">{{$article->body}}</p>
+                    <p class="card-text">{!!$article->body!!}</p>
                 </div>
             </div>
         </div>

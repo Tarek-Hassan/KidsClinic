@@ -85,44 +85,19 @@
 
 <script>
     $(function () {
-        //-------------
-        //- PIE CHART-
-        //-------------
-        // Get context with jQuery - using jQuery's .get() method.
-        // var users =  <?php //echo json_encode($users) ?>;
-        // var pieChartCanvas = $('#pieChart').get(0).getContext('2d')
-        // var pieData = {
-        //     labels: [
-        //         'male',
-        //         'female',       
-        //     ],
-        //     datasets: [{
-        //         data:users,
-        //         backgroundColor: ['#f39c12', '#00c0ef',],
-        //     }]
-        // };
-        // var pieOptions = {
-        //     maintainAspectRatio: false,
-        //     responsive: true,
-        // }
-        // // You can switch between pie and douhnut using the method below.
-        // var pieChart = new Chart(pieChartCanvas, {
-        //     type: 'pie',
-        //     data: pieData,
-        //     options: pieOptions
-        // })
-        // ****************************
          //-------------
-        //- PIE CHART-pieChart_order
+        //- PIE CHART-pieChart_TO 
+        // -top10 patient visits -> tothe doctor
+        // -top10 doctor visits -> tothe Admin 
         //-------------
         // Get context with jQuery - using jQuery's .get() method.
-        var countPatient =  <?php echo json_encode($countPatient) ?>;
-        var patientName =  <?php echo json_encode($patientName) ?>;
+        var count =  <?php echo json_encode($count) ?>;
+        var name =  <?php echo json_encode($name) ?>;
         var pieChartCanvas = $('#pieChart_order').get(0).getContext('2d')
         var pieData = {
-            labels: patientName,
+            labels: name,
             datasets: [{
-                data:countPatient,
+                data:count,
                 backgroundColor: ['#f39c12', '#00c0ef','#f56954', '#00a65a', '#3c8dbc','#9932CC','#E9967A','#A52A2A','#DEB887','#BDB76B',],
             }]
         };

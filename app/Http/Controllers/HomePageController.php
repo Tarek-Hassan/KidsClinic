@@ -50,7 +50,8 @@ class HomePageController extends Controller
     }
     
     public function articles(){
-        $articles=Article::all();
+        // $articles=Article::all()->orderBy('created_at');
+        $articles=Article::orderBy('created_at', 'desc')->get();
         return view('home.articles',compact('articles'));
     }
 }

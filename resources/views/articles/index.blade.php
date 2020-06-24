@@ -80,7 +80,8 @@
                 },
                 {
                     data: 'body',
-                    name: 'body'
+                    name: 'body',
+                     //render:function(data){ return '{!!'+data+' !!}'}
                 },
            
                 {
