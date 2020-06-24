@@ -15,33 +15,33 @@ class DatabaseSeeder extends Seeder
      */
     public function run( )
     {
+        DB::table('users')->insert([
+            'name' => 'admin',
+            'email' =>'admin@admin.com',
+            'password' => Hash::make('123456789'),
+            'role' => '2',
+            ]);
         // DB::table('users')->insert([
-        //     'name' => 'admin',
-        //     'email' =>'admin@admin.com',
+        //     'name' => 'doctor',
+        //     'email' =>'doctor@doctor.com',
         //     'password' => Hash::make('123456789'),
-        //     'role' => '2',
+        //     'role' => '1',
         //     ]);
-        // // DB::table('users')->insert([
-        // //     'name' => 'doctor',
-        // //     'email' =>'doctor@doctor.com',
-        // //     'password' => Hash::make('123456789'),
-        // //     'role' => '1',
-        // //     ]);
-        //     $users = factory(App\User::class, 5)->create();
-        //     $Patient = factory(App\Patient::class,10)->create();
-        // // DB::table('users')->insert([
-        // //     'name' => 'user',
-        // //     'email' =>'user@user.com',
-        // //     'password' => Hash::make('123456789'),
-        // //     'role' => '0',
-        // //     'patient_id' => 3,
-        // //     ]);
+            $users = factory(App\User::class, 5)->create();
+            $Patient = factory(App\Patient::class,10)->create();
+        // DB::table('users')->insert([
+        //     'name' => 'user',
+        //     'email' =>'user@user.com',
+        //     'password' => Hash::make('123456789'),
+        //     'role' => '0',
+        //     'patient_id' => 3,
+        //     ]);
             
-        // $Visit = factory(App\Visit::class,50)->create();
+        $Visit = factory(App\Visit::class,50)->create();
         $Schedule =factory(App\Schedule::class,20)->create();
-        // $Article = factory(App\Article::class,40)->create();
-        // $About = factory(App\About::class)->create();
-        // $Setting = factory(App\Setting::class)->create();
+        $Article = factory(App\Article::class,40)->create();
+        $About = factory(App\About::class)->create();
+        $Setting = factory(App\Setting::class)->create();
                 }
         }
         
