@@ -43,6 +43,15 @@
                                 <input type="text" name="email" class="form-control" id="exampleInputemail"
                                     placeholder="Enter email">
                             </div>
+                            <div class="form-group  ">
+                                <label>Patients</label>
+                                <select class="form-control select2 mb-2" name="patient_id">
+                                    @foreach($patients as $patient)
+                                    <option value="{{$patient->id}}">{{$patient->name}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            @if((Auth::user()->role) == '2')
                             <div class="form-group">
                                 Role
                                 <select class="custom-select" name="role">
@@ -51,20 +60,14 @@
                                     <option value="2">Admin</option>
                                 </select>
                             </div>
-
-                            <div class="form-group  ">
-                                <label>Patients</label>
-                                <select class="form-control select2 mb-2" name="patient_id" >
-                                    @foreach($patients as $patient)
-                                    <option value="{{$patient->id}}">{{$patient->name}}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                                  <div class="form-group">
+                            <div class="form-group">
                                 <label for="exampleFormControlTextarea1">Bio.</label>
                                 <textarea class="form-control" id="exampleFormControlTextarea1" name="bio"
                                     rows="3"></textarea>
                             </div>
+                            @endif
+
+
 
                             <div class="form-group">
                                 <label for="exampleInputaddress">Mobile</label>
