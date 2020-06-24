@@ -74,7 +74,6 @@
                         <i class="nav-icon fas fa-users"></i>
                         <p>
                             Users
-
                         </p>
                     </a>
 

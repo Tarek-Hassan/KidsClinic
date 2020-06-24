@@ -27,7 +27,8 @@
                         <div class="card-body">
                             <div class="form-group">
                                 <label for="exampleFormControlTextarea1">Body</label>
-                                <textarea class="textarea" id="exampleFormControlTextarea1" name="body"
+                                {{-- <textarea class="textarea" id="exampleFormControlTextarea1" name="body" --}}
+                                <textarea id="exampleFormControlTextarea1" name="body"
                                     rows="3">{{$about->body}}</textarea>
                             </div>
                           
