@@ -67,8 +67,6 @@
                             </div>
                             @endif
 
-
-
                             <div class="form-group">
                                 <label for="exampleInputaddress">Mobile</label>
                                 <input type="number" name="mobile" maxlength="14" class="form-control"

@@ -18,6 +18,7 @@ class CreateSettingsTable extends Migration
             $table->string('phone')->nullable();
             $table->string('email')->nullable();
             $table->text('body')->nullable();
+            $table->text('worktime')->nullable();
             $table->timestamps();
         });
     }

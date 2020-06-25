@@ -39,6 +39,11 @@
                                 <textarea class="textarea" id="exampleFormControlTextarea1" name="body"
                                     >{{$setting->body}}</textarea>
                             </div>
+                            <div class="form-group">
+                                <label for="exampleFormControlTextarea1">Time Of Work</label>
+                                <textarea class="textarea" id="exampleFormControlTextarea" name="worktime"
+                                    >{{$setting->worktime}}</textarea>
+                            </div>
                           
                         </div>
 

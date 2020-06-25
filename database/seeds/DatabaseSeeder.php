@@ -27,21 +27,22 @@ class DatabaseSeeder extends Seeder
         //     'password' => Hash::make('123456789'),
         //     'role' => '1',
         //     ]);
-            $users = factory(App\User::class, 5)->create();
-            $Patient = factory(App\Patient::class,10)->create();
         // DB::table('users')->insert([
-        //     'name' => 'user',
-        //     'email' =>'user@user.com',
-        //     'password' => Hash::make('123456789'),
-        //     'role' => '0',
-        //     'patient_id' => 3,
-        //     ]);
+            //     'name' => 'user',
+            //     'email' =>'user@user.com',
+            //     'password' => Hash::make('123456789'),
+            //     'role' => '0',
+            //     'patient_id' => 3,
+            //     ]);
             
-        $Visit = factory(App\Visit::class,50)->create();
-        $Schedule =factory(App\Schedule::class,20)->create();
+            $About = factory(App\About::class)->create();
+            $Setting = factory(App\Setting::class)->create();
+            $Schedule =factory(App\Schedule::class,20)->create();
+
+        $users = factory(App\User::class, 5)->create();
         $Article = factory(App\Article::class,40)->create();
-        $About = factory(App\About::class)->create();
-        $Setting = factory(App\Setting::class)->create();
+        $Patient = factory(App\Patient::class,20)->create();
+        $Visit = factory(App\Visit::class,50)->create();
                 }
         }
         
