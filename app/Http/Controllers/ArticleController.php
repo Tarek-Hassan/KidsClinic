@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Storage;
 use Yajra\DataTables\DataTables ; 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\Article\ArticleRequest;
 
 class ArticleController extends Controller
 {
@@ -47,7 +48,8 @@ class ArticleController extends Controller
     }   
 
       
-    public function store(Request $request) {
+    public function store(ArticleRequest $request) {
+     
         $request['doctor_id']=Auth::user()->id;
         if($request->profile){
 
@@ -68,7 +70,7 @@ class ArticleController extends Controller
         return view('articles.show', compact('article'));
     }
     
-    public function update(Request $request, $id) {
+    public function update(ArticleRequest $request, $id) {
             
             if($request->profile){
              

@@ -24,13 +24,10 @@ class SettingRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255',
-            'profile'=>'image|mimes:jpeg,bmp,png',
-            'mobile'=>'max:14',
-            'national_id'=>'max:14',
-            'password' => 'required|string|min:8|confirmed',
-            'role'=>'required|between:0,2'
+            'email' => 'required|string|email',
+            'phone'=>'required|string|max:14',
+            'body' => 'required',
+            'worktime' => 'required',
 
     ];
     }
