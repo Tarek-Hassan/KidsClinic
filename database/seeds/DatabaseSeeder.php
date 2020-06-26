@@ -21,19 +21,19 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('123456789'),
             'role' => '2',
             ]);
-        // DB::table('users')->insert([
-        //     'name' => 'doctor',
-        //     'email' =>'doctor@doctor.com',
-        //     'password' => Hash::make('123456789'),
-        //     'role' => '1',
-        //     ]);
-        // DB::table('users')->insert([
-            //     'name' => 'user',
-            //     'email' =>'user@user.com',
-            //     'password' => Hash::make('123456789'),
-            //     'role' => '0',
-            //     'patient_id' => 3,
-            //     ]);
+        DB::table('users')->insert([
+            'name' => 'doctor',
+            'email' =>'doctor@doctor.com',
+            'password' => Hash::make('123456789'),
+            'role' => '1',
+            ]);
+        DB::table('users')->insert([
+                'name' => 'user',
+                'email' =>'user@user.com',
+                'password' => Hash::make('123456789'),
+                'role' => '0',
+                'patient_id' => 1,
+                ]);
             
             $About = factory(App\About::class)->create();
             $Setting = factory(App\Setting::class)->create();

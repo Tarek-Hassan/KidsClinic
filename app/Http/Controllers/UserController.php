@@ -25,7 +25,6 @@ class UserController extends Controller
                     ->addIndexColumn()
 
                     ->addColumn('avatar', function($row){
-
                         return "/storage/$row->avatar";
                         })
 
