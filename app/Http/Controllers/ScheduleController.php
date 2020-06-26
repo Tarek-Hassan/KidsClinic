@@ -20,8 +20,10 @@ class ScheduleController extends Controller
             return Datatables::of($data)
                     ->addIndexColumn()
                     ->addColumn('action', function($row){
-                        $button = '&nbsp;&nbsp;&nbsp;<a href="/admin/schedule/'.$row->id.'/edit" class="edit btn btn-secondary btn-sm m-1">Edit</a>';
-                        $button .= '&nbsp;&nbsp;&nbsp;<a  data-id="'.$row->id.'" class="del btn btn-danger btn-sm m-1 "  data-toggle="modal"data-target="#delete">Delete</a>';
+                        $button = '&nbsp;&nbsp;&nbsp;<a href="/admin/schedule/'.$row->id.'/edit" class="edit btn btn-secondary btn-sm m-1"><i class="fas fa-pencil-alt">
+                        </i> Edit</a>';
+                        $button .= '&nbsp;&nbsp;&nbsp;<a  data-id="'.$row->id.'" class="del btn btn-danger btn-sm m-1 "  data-toggle="modal"data-target="#delete"><i class="fas fa-trash">
+                        </i> Delete</a>';
                         return $button;
                     })
 

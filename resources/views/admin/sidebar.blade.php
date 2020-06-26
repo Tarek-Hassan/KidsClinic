@@ -66,11 +66,13 @@
                         </p>
                     </a>
                 </li>
-                {{-- to Only Admin --}}
-                @if(Auth::user()->role == '2')
 
                 <li class="nav-item ">
+                 @if(Auth::user()->role == '2')
                     <a href="{{url('admin/users')}}" class="nav-link">
+                 @else
+                    <a href="{{url('admin/users/create')}}" class="nav-link">
+                 @endif
                         <i class="nav-icon fas fa-users"></i>
                         <p>
                             Users
@@ -78,6 +80,8 @@
                     </a>
 
                 </li>
+                {{-- to Only Admin --}}
+                @if(Auth::user()->role == '2')
                 <li class="nav-item">
                     <a href="{{url('admin/about')}}" class="nav-link">
                         <i class="nav-icon fas fa-info-circle"></i>

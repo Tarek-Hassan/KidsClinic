@@ -13,7 +13,11 @@ class ArticleController extends Controller
     public function index(Request $request)
     { 
         if ($request->ajax()) {
-            $data = Article::latest()->get();
+            if((Auth::user()->role) == '2'){
+                $data = Article::latest()->get();
+            }else{
+                $data = Article::where('doctor_id',Auth::user()->id)->get();
+            }
             return Datatables::of($data)
                     ->addIndexColumn()
 
@@ -24,9 +28,11 @@ class ArticleController extends Controller
                       return $row->user->name;
                     })
                     ->addColumn('action', function($row){
-                        $button = '&nbsp;&nbsp;&nbsp;<a href="/admin/articles/'.$row->id.'/edit" class="edit btn btn-secondary btn-sm m-1">Edit</a>';
-                        $button .= '&nbsp;&nbsp;&nbsp;<a href="/admin/articles/'.$row->id.'" class=" btn btn-info btn-sm m-1"><i class="fas fa-eye"></i></a>';
-                        $button .= '&nbsp;&nbsp;&nbsp;<a  data-id="'.$row->id.'" class="del btn btn-danger btn-sm m-1 "  data-toggle="modal"data-target="#delete">Delete</a>';
+                        $button = '&nbsp;&nbsp;&nbsp;<a href="/admin/articles/'.$row->id.'/edit" class="edit btn btn-secondary btn-sm m-1"><i class="fas fa-pencil-alt">
+                        </i> Edit</a>';
+                        $button .= '&nbsp;&nbsp;&nbsp;<a href="/admin/articles/'.$row->id.'" class=" btn btn-info btn-sm m-1"><i class="fas fa-eye"></i> View</a>';
+                        $button .= '&nbsp;&nbsp;&nbsp;<a  data-id="'.$row->id.'" class="del btn btn-danger btn-sm m-1 "  data-toggle="modal"data-target="#delete"><i class="fas fa-trash">
+                        </i>  Delete</a>';
                         return $button;
                     })
                     ->rawColumns(['action'])
@@ -40,7 +46,7 @@ class ArticleController extends Controller
         return view('articles.create');
     }   
 
-    
+      
     public function store(Request $request) {
         $request['doctor_id']=Auth::user()->id;
         if($request->profile){

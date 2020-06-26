@@ -26,12 +26,13 @@
                     <form method="POST" action="{{route('users.store')}}" enctype="multipart/form-data">
                         @csrf
                         <div class="card-body">
+                            @if((Auth::user()->role) == '2')
                             <div class="form-group">
                                 <label for="exampleInputaddress">Image</label>
                                 <input type="file" name="profile" class="form-control" id="exampleInputarea"
                                     placeholder="Enter Image">
                             </div>
-
+                            @endif
                             <div class="form-group">
                                 <label for="exampleInputaddress">name</label>
                                 <input type="text" name="name" class="form-control" id="exampleInputname"
@@ -65,7 +66,7 @@
                                 <textarea class="form-control" id="exampleFormControlTextarea1" name="bio"
                                     rows="3"></textarea>
                             </div>
-                            @endif
+
 
                             <div class="form-group">
                                 <label for="exampleInputaddress">Mobile</label>
@@ -78,6 +79,7 @@
                                 <input type="number" name="national_id" maxlength="14" class="form-control"
                                     id="exampleInputnational" placeholder="Enter National_ID">
                             </div>
+                            @endif
                             <div class="form-group">
                                 <label for="exampleInputaddress">Password</label>
                                 <input type="password" name="password" class="form-control" id="exampleInputpassword"

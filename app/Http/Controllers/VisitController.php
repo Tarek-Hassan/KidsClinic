@@ -15,7 +15,11 @@ class VisitController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $data = Visit::latest()->get();
+            if((Auth::user()->role) == '2'){
+                $data = Visit::latest()->get();
+            }else{
+                $data = Visit::where('doctor_id',Auth::user()->id)->get();
+            }
             return Datatables::of($data)
                     ->addColumn('date', function($row){
                     if( $row->created_at){
@@ -31,8 +35,10 @@ class VisitController extends Controller
                         return $row->user->name;
                     })
                     ->addColumn('action', function($row){
-                        $button = '&nbsp;&nbsp;&nbsp;<a href="/admin/visits/'.$row->id.'/edit" class="edit btn btn-secondary btn-sm m-1">Edit</a>';
-                        $button .= '&nbsp;&nbsp;&nbsp;<a  data-id="'.$row->id.'" class="del btn btn-danger btn-sm m-1 "  data-toggle="modal"data-target="#delete">Delete</a>';
+                        $button = '&nbsp;&nbsp;&nbsp;<a href="/admin/visits/'.$row->id.'/edit" class="edit btn btn-secondary btn-sm m-1"><i class="fas fa-pencil-alt">
+                        </i> Edit</a>';
+                        $button .= '&nbsp;&nbsp;&nbsp;<a  data-id="'.$row->id.'" class="del btn btn-danger btn-sm m-1 "  data-toggle="modal"data-target="#delete"><i class="fas fa-trash">
+                        </i> Delete</a>';
                         return $button;
                     })
 

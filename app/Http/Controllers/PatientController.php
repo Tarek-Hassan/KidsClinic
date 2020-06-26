@@ -49,10 +49,12 @@ class PatientController extends Controller
                         return $row->user->name;
                     })
                     ->addColumn('action', function($row){
-                        $button = '&nbsp;&nbsp;&nbsp;<a href="/admin/patients/'.$row->id.'/edit" class="edit btn btn-secondary btn-sm m-1">Edit</a>';
-                        $button .= '&nbsp;&nbsp;&nbsp;<a href="/admin/patients/'.$row->id.'" class="edit btn btn-success btn-sm m-1"> Show</a>';
+                        $button = '&nbsp;&nbsp;&nbsp;<a href="/admin/patients/'.$row->id.'/edit" class="edit btn btn-secondary btn-sm m-1"><i class="fas fa-pencil-alt">
+                        </i> Edit</a>';
+                        $button .= '&nbsp;&nbsp;&nbsp;<a href="/admin/patients/'.$row->id.'" class="edit btn btn-info btn-sm m-1"><i class="fas fa-eye"></i> Show</a>';
                         // $button .= '&nbsp;&nbsp;&nbsp;<a href="/admin/visits/create/'.$row->id.'" class="edit btn btn-success btn-sm m-1"> new Visit</a>';
-                        $button .= '&nbsp;&nbsp;&nbsp;<a  data-id="'.$row->id.'" class="del btn btn-danger btn-sm m-1 "  data-toggle="modal"data-target="#delete">Delete</a>';
+                        $button .= '&nbsp;&nbsp;&nbsp;<a  data-id="'.$row->id.'" class="del btn btn-danger btn-sm m-1 "  data-toggle="modal"data-target="#delete"><i class="fas fa-trash">
+                        </i> Delete</a>';
                         return $button;
                     })
 

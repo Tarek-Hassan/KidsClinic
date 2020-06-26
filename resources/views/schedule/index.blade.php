@@ -5,7 +5,7 @@
 
 <div class="container my-3">
     <a href="{{route('schedule.create')}}" class="edit btn btn-primary btn-sm mb-3">Add Schedule Time </a>
-    <a href="{{route('calender.index')}}" class="edit btn btn-primary btn-sm mb-3">Show Schedule In Calender </a>
+    <a href="{{route('calender.index')}}" class="edit btn btn-warning btn-sm mb-3 float-right">Show In  <i class="nav-icon far fa-calendar-alt"></i> </a>
     <table class="table table-bordered data-table">
         <thead>
             <tr>

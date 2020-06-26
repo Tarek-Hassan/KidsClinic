@@ -27,18 +27,25 @@ class StatisticController extends Controller
                 $name=User::find(array_keys($top->toArray()))->pluck('name');
                 // to get the send number of Ordr for each user in top array 
                 $count=array_values($top->toArray());
+                $countAge=0;$age=0;
         }else{
-            // Display Chart To Doctor
+            // Display Chart To Doctor ->TOP 10 Patient
                 // to get the top id && count(order) && DesOrder && Limit =10
                 $top = Visit::selectRaw("COUNT(*) as count,patient_id")->groupBy('patient_id')->orderByDesc('count')->limit(10)->pluck('count','patient_id');
                 // to get the name for each id   in top array 
                 $name=Patient::find(array_keys($top->toArray()))->pluck('name');
                 // to get the send number of Ordr for each user in top array 
                 $count=array_values($top->toArray());
-        }
-     // @Male - Female Attendance​_pie_Chart
-        //  $visits = Visit::groupBy('patient_id')->selectRaw("COUNT(*) as count")->pluck('count');
-        //  return view('statistics.index',compact('visits',));
-         return view('statistics.index',compact('count','name'));
+
+            // Display Chart To Doctor ->TOP 10 Age 
+                // to get the top geA && count(age) && DesOrder && Limit =5
+                $topAge = Patient::selectRaw("COUNT(*) as count,age")->groupBy('age')->orderByDesc('count')->limit(5)->pluck('count','age');
+                // to get the age => keys 
+                $age=array_keys($topAge->toArray());
+                // to get the count(age) => values
+                $countAge=array_values($topAge->toArray());
+            }
+            return view('statistics.index',compact('count','name','countAge','age'));
+         
      }
 }

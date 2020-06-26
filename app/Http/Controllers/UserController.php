@@ -10,6 +10,7 @@ use App\User;
 use App\Patient;
 use App\Http\Requests\User\UpdateUserRequest;
 use App\Http\Requests\User\StoreUserRequest;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -40,8 +41,10 @@ class UserController extends Controller
                     })
 
                     ->addColumn('action', function($row){
-                        $button = '&nbsp;&nbsp;&nbsp;<a href="/admin/users/'.$row->id.'/edit" class="edit btn btn-secondary btn-sm m-1">Edit</a>';
-                        $button .= '&nbsp;&nbsp;&nbsp;<a  data-id="'.$row->id.'" class="del btn btn-danger btn-sm m-1 "  data-toggle="modal"data-target="#delete">Delete</a>';
+                        $button = '&nbsp;&nbsp;&nbsp;<a href="/admin/users/'.$row->id.'/edit" class="edit btn btn-secondary btn-sm m-1"><i class="fas fa-pencil-alt">
+                        </i> Edit</a>';
+                        $button .= '&nbsp;&nbsp;&nbsp;<a  data-id="'.$row->id.'" class="del btn btn-danger btn-sm m-1 "  data-toggle="modal"data-target="#delete"><i class="fas fa-trash">
+                        </i> Delete</a>';
                         return $button;
                     })
 
@@ -49,7 +52,14 @@ class UserController extends Controller
 
                     ->make(true);
         }
-        return view('users.index');
+        
+        if(Auth::user()->role=='2'){
+            return view('users.index');
+            
+        }else{
+            return view('patients.index');
+            
+        }
     }
 
     
@@ -61,8 +71,9 @@ class UserController extends Controller
     
     public function store(StoreUserRequest $request) {
     // public function store(Request $request) {
-
-        $request['avatar']=Storage::disk('public')->put('images',$request->profile);
+if($request->profile){
+    $request['avatar']=Storage::disk('public')->put('images',$request->profile);
+}
         $user=User::create($request->all());
         // $user->createToken($request->email)->plainTextToken;
         return redirect()->route('users.index');
