@@ -10,13 +10,13 @@
     6-php artisan migrate
     7-php artisan db:seed                // to insert admin Details in db
     8-php artisan serve
-## DashBoard ->admin
+## DashBoard  for admin
     UserName:admin@admin.com
     Password:123456789
-## DashBoard ->doctor
+## DashBoard for doctor
     UserName:doctor@doctor.com
     Password:123456789
-## DashBoard ->user
+## DashBoard for patientuser
     UserName:user@user.com
     Password:123456789
 ## Packages
