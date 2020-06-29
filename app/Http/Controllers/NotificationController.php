@@ -10,7 +10,6 @@ class NotificationController extends Controller
 {
     //
   public function notifySchedule() {
-      dd('l,;l');
         $id=Auth::user()->id;
         $user = \App\User::find($id);
         $schedules = \App\Schedule::whereDate('start', '=', now()->toDateString())->get();

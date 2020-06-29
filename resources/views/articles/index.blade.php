@@ -70,7 +70,6 @@
                 {
                     data: 'image',
                     name: 'image',
-                    //render:function(data){ return "<img width='50px' height='50px' src='/storage/"+ data + "' />";}
                     render:function(data){ return "<img width='50px' height='50px' src='"+ data + "' />";}
 
                 },

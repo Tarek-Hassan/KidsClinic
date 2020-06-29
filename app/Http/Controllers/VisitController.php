@@ -98,28 +98,5 @@ class VisitController extends Controller
     }   
         
     
-    // public function edit(string $id) {
-    //     $patient=Patient::findOrFail($id);
-    //     return view('patients.edit', compact('patient'));
-    // }
-
-    // public function update(UpdatePatientRequest $request, $id) {
-   
-  
-
-    //     $userUpdate = Patient::findOrFail($id);
-    //     $userUpdate->update($request->all());
-    //     $userUpdate->fresh();
-    //     return redirect()->route('patients.index');
-    // }
-
-    // public function destroy($id) {
-    //     $users=Patient::find($id);
-    //     // Storage::disk('public')->delete($users->avatar);
-    //     $users->delete();
-    //     return redirect()->back();
-    // }
-
-
 
 }

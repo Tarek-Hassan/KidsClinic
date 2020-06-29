@@ -63,7 +63,7 @@
                                     <input type="text" class="form-control" name="color">
 
                                     <div class="input-group-append">
-                                        <span class="input-group-text"><i class="fas fa-square fa-5x" ></i></span>
+                                        <span class="input-group-text"><i class="fas fa-square fa-5x"></i></span>
                                     </div>
                                 </div>
                                 <!-- /.input group -->

@@ -1,4 +1,5 @@
 @include('admin.header')
+
 <body class="hold-transition sidebar-mini">
     <div class="wrapper">
         <!-- Navbar -->
@@ -26,7 +27,7 @@
             <div class="content">
                 <div class="container-fluid">
                     <div class="row card">
-                 
+
                         @yield('content')
                     </div>
                     <!-- /.row -->
@@ -43,13 +44,9 @@
         </aside>
         <!-- /.control-sidebar -->
         <!-- Main Footer -->
-<footer class="main-footer">
-    <strong>Copyright &copy; 2014-2019 <a href="http://adminlte.io">AdminLTE.io</a>.</strong>
-    All rights reserved.
-    <div class="float-right d-none d-sm-inline-block">
-        <b>Version</b> 3.0.2
+        <footer class="main-footer">
+
+        </footer>
     </div>
-</footer>
-</div>
-<!-- ./wrapper -->
-        @include('admin.footer')
+    <!-- ./wrapper -->
+    @include('admin.footer')

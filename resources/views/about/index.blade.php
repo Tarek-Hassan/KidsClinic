@@ -2,8 +2,8 @@
 @section('title','About Us')
 @section('section_title','About Us')
 @section('css')
-      <!-- summernote -->
-  <link rel="stylesheet" href="{{asset('control')}}/plugins/summernote/summernote-bs4.css">
+<!-- summernote -->
+<link rel="stylesheet" href="{{asset('control')}}/plugins/summernote/summernote-bs4.css">
 @endsection
 
 @section('content')
@@ -30,7 +30,7 @@
                                 <textarea class="textarea" id="exampleFormControlTextarea1" name="body"
                                     rows="3">{{$about->body}}</textarea>
                             </div>
-                          
+
                         </div>
 
                 </div>
@@ -61,10 +61,11 @@
 <!-- Summernote -->
 <script src="{{asset('control')}}/plugins/summernote/summernote-bs4.min.js"></script>
 <script>
-  $(function () {
-    // Summernote
-    $('.textarea').summernote()
-  })
+    $(function () {
+        // Summernote
+        $('.textarea').summernote()
+    })
+
 </script>
-    
+
 @endsection

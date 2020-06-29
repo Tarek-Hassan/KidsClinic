@@ -16,8 +16,8 @@
                 <th>Blood Type</th>
                 <th>Birth Type</th>
                 <th>Number</th>
-                <th>Notes</th>
-                <th>Dr.Name</th>
+                {{-- <th>Notes</th> --}}
+                {{-- <th>Dr.Name</th> --}}
                 <th width="100px">Action</th>
             </tr>
         </thead>
@@ -73,13 +73,7 @@
                     data: 'id',
                     name: 'id'
                 },
-                // {
-                //     data: 'avatar',
-                //     name: 'avatar',
-                //     //render:function(data){ return "<img width='50px' height='50px' src='/storage/"+ data + "' />";}
-                //     render:function(data){ return "<img width='50px' height='50px' src='"+ data + "' />";}
-
-                // },
+               
                 {
                     data: 'name',
                     name: 'name'
@@ -104,14 +98,14 @@
                     data: 'number',
                     name: 'number'
                 },
-                {
+                {{-- {
                     data: 'notes',
                     name: 'notes'
                 },
                 {
                     data: 'doctor_id',
                     name: 'doctor_id'
-                },
+                }, --}}
                  {
                     data: 'action',
                     name: 'action',

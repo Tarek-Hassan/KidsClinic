@@ -58,22 +58,11 @@ class ScheduleController extends Controller
    // 
    public function edit(string $id) {
     $schedule=Schedule::findOrFail($id);
-    // $schedule['date']=implode(" - ", [$schedule->start,$schedule->end]);
-    // if($schedule->allDay=='1'){$schedule['allDay']='on';}
-    // else{$schedule['allDay']='off';}
     return view('schedule.edit', compact('schedule'));
 }
 
 public function update(Request $request, $id) {
     
-    // dd($request->all());
-    // $date=explode(" - ", $request->date);
-        
-    // $request['start']=Carbon::parse($date[0]);
-    // $request['end']=Carbon::parse($date[1]);
-    
-    // if($request->allDay=='on'){$request['allDay']=true;}
-    // else{$request['allDay']=false;}
     $scheduleUpdate = Schedule::findOrFail($id);
     $scheduleUpdate->update($request->all());
     $scheduleUpdate->fresh();

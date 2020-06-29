@@ -17,8 +17,7 @@ class UserController extends Controller
     
     public function index(Request $request)
     { 
-        // dd(User::all());
-        // // dd(User::where('id',2)->with('patients')->get());
+
         if ($request->ajax()) {
             $data = User::latest()->get();
             return Datatables::of($data)

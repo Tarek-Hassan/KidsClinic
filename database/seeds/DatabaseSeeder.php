@@ -35,14 +35,14 @@ class DatabaseSeeder extends Seeder
                 'patient_id' => 1,
                 ]);
             
-            $About = factory(App\About::class)->create();
-            $Setting = factory(App\Setting::class)->create();
-            $Schedule =factory(App\Schedule::class,20)->create();
+            // $About = factory(App\About::class)->create();
+            // $Setting = factory(App\Setting::class)->create();
+            // $Schedule =factory(App\Schedule::class,20)->create();
 
         $users = factory(App\User::class, 5)->create();
-        $Article = factory(App\Article::class,40)->create();
-        $Patient = factory(App\Patient::class,20)->create();
-        $Visit = factory(App\Visit::class,50)->create();
+        // $Article = factory(App\Article::class,40)->create();
+        // $Patient = factory(App\Patient::class,20)->create();
+        // $Visit = factory(App\Visit::class,50)->create();
                 }
         }
         
