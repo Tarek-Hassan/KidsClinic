@@ -23,6 +23,9 @@
             <li class="nav-item">
                 <a class="nav-link " href="{{route('articles')}}">Articles</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link " href="{{route('api')}}">API</a>
+            </li>
         </ul>
         @if (Auth::user()->role !=0)
         <button class="btn btn-warning my-2 my-sm-0"><a href="/admin"><img

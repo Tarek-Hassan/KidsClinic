@@ -25,6 +25,16 @@ Route::prefix('')->middleware(['auth',])->group(function(){
     Route::get('articles', 'HomePageController@articles')->name('articles');
     Route::get('notify', 'NotificationController@notifySchedule')->name('n');
     Route::get('markAsRead', 'NotificationController@markAll')->name('mark');
+    // TO CRUD ON JSON API
+    Route::prefix('/api')->group(function(){
+        Route::get('', 'APIController@index')->name('api.index');
+        Route::get('/create', 'APIController@create')->name("api.create");
+        Route::post('', 'APIController@store')->name("api.store");
+        Route::get('/{api}', 'APIController@show')->name("api.show");
+        Route::get('/{api}/edit', 'APIController@edit')->name("api.edit");
+        Route::put('/{api}', 'APIController@update')->name("api.update");
+        Route::delete('/{api}', 'APIController@destroy')->name("api.destroy");
+    });
 });
 
 //  Admin_DashBoard
