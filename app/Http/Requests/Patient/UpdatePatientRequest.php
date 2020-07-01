@@ -32,8 +32,8 @@ class UpdatePatientRequest extends FormRequest
             'dad_job' => 'required|string|max:255',
             'mum_job' => 'required|string|max:255',
             'address' => 'string|max:255',
-            'phone'=>'string|max:14',
-            'notes'=>'string|max:500',
+            'phone'=>'max:14',
+            'notes'=>'max:500',
 
 
     ];

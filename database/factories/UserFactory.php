@@ -18,6 +18,6 @@ $factory->define(User::class, function (Faker $faker) {
         'mobile'=>$faker->e164PhoneNumber,
         'national_id'=>$faker->isbn10,
         'patient_id'=>$faker->numberBetween(1,20),
-        'bio'=>$faker->paragraph(),
+        'bio'=>$faker->text(),
     ];
 });

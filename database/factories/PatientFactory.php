@@ -17,7 +17,7 @@ $factory->define(Patient::class, function (Faker $faker) {
         'phone'=>$faker->e164PhoneNumber,
         'address'=>$faker->address,
         'notes'=>$faker->text(),
-        'doctor_id'=>$faker->numberBetween(1,6),
+        'doctor_id'=>2,
 
         //
     ];

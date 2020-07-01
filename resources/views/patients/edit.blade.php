@@ -78,7 +78,7 @@
                             <div class="form-group">
                                 <label for="exampleInputaddress">Phone</label>
                                 <input type="number" name="phone" value="{{$patient->phone}}" maxlength="14"
-                                    class="form-control" id="exampleInputPhone" placeholder="Enter Phone">
+                                    class="form-control" id="exampleInputphone" placeholder="Enter phone">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputaddress">Address</label>

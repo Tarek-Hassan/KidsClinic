@@ -10,7 +10,7 @@ $factory->define(Article::class, function (Faker $faker) {
         // 'title','body','image','doctor_id'
         'title'=>$faker->word,
         'body'=>$faker->text(),
-        'image'=>"images/bg".$faker->numberBetween(1,12).".jpg",
-        'doctor_id'=>$faker->numberBetween(1,6),
+        'image'=>"images/bg".$faker->numberBetween(1,10).".jpg",
+        'doctor_id'=>2,
     ];
 });

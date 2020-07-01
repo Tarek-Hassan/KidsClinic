@@ -5,6 +5,7 @@
     <img src="https://drive.google.com/file/d/1zSqLpetWB2Pqt4-evCyo850-ZIXCWT9B/view?usp=sharing" alt="calender">
     <img src="https://drive.google.com/file/d/1OeeU7-ZH8b4f0FumN5IgR6LaAJ8qY6ZH/view?usp=sharing" alt="setting">
 </p>
+
 <p align="center">
     <img src="https://drive.google.com/file/d/1wBfJXos-ebNLKchuApR_DWlmyRrE3afZ/view?usp=sharing" alt="print patient details">
     <img src="https://drive.google.com/file/d/1qq4qkBFlKGvL-XawBhKaMD8Er7LsShvq/view?usp=sharing" alt="article">
@@ -12,8 +13,9 @@
 </p>
 
 ## About ClinicKids
+
 - this Site to manage the clinic 
- 
+
 - [See All ScreenShots](https://drive.google.com/drive/folders/1ASwuvlAnXOJmZhS2yo0NQEtWS8E5BNET?usp=sharing).
 - [Live Demo In Heroku](http://pure-basin-21198.herokuapp.com).
 
@@ -26,15 +28,19 @@
     6-php artisan migrate
     7-php artisan db:seed                // to insert admin Details in db
     8-php artisan serve
+
 ## DashBoard  for admin
     UserName:admin@admin.com
     Password:123456789
+
 ## DashBoard for doctor
     UserName:doctor@doctor.com
     Password:123456789
+
 ## DashBoard for patientuser
     UserName:user@user.com
     Password:123456789
+    
 ## Packages
     1)DataTabale
         -yajra/laravel-datatables-oracle
