@@ -23,8 +23,9 @@
             <li class="nav-item">
                 <a class="nav-link " href="{{route('articles')}}">Articles</a>
             </li>
+            
             <li class="nav-item">
-                <a class="nav-link " href="{{route('api')}}">API</a>
+                <a class="nav-link " href="{{route('api.index')}}">Quotes</a>
             </li>
         </ul>
         @if (Auth::user()->role !=0)
