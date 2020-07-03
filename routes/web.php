@@ -26,7 +26,7 @@ Route::prefix('')->middleware(['auth',])->group(function(){
     Route::get('notify', 'NotificationController@notifySchedule')->name('n');
     Route::get('markAsRead', 'NotificationController@markAll')->name('mark');
     // TO CRUD ON JSON API
-    Route::prefix('/api')->group(function(){
+    Route::prefix('/quotes')->group(function(){
         Route::get('', 'APIController@index')->name('api.index');
         Route::get('/create', 'APIController@create')->name("api.create");
         Route::post('', 'APIController@store')->name("api.store");
