@@ -7,8 +7,6 @@
     <div class="container-fluid ">
 
 
-
-
         <!-- PIE CHART -->
         <div class="card card-info my-3">
             <div class="card-header">
@@ -74,8 +72,8 @@
         // -top10 doctor visits -> tothe Admin 
         //-------------
         // Get context with jQuery - using jQuery's .get() method.
-        var count = < ? php echo json_encode($count) ? > ;
-        var name = < ? php echo json_encode($name) ? > ;
+        var count = <?php echo json_encode($count) ?> ;
+        var name = <?php echo json_encode($name) ?> ;
         var pieChartCanvas = $('#pieChart_order').get(0).getContext('2d')
         var pieData = {
             labels: name,
@@ -102,8 +100,8 @@
         // 
         //-------------
         // Get context with jQuery - using jQuery's .get() method.
-        var count = < ? php echo json_encode($countAge) ? > ;
-        var name = < ? php echo json_encode($age) ? > ;
+        var count = <?php echo json_encode($countAge) ?> ;
+        var name = <?php echo json_encode($age) ?> ;
         var pieChartCanvas = $('#pieChart_age').get(0).getContext('2d')
         var pieData = {
             labels: name,
