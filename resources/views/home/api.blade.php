@@ -12,7 +12,7 @@
         @foreach($datas as $data )
 
             <div class="alert alert-{{$bg[array_rand($bg)]}}" role="alert">
-                <p>{{$data->text}}</p>
+                <p>“ {{$data->text}} „</p>
                 <hr>
                 <p class="mb-0 float-right">{{$data->author}}</p>
             </div>
