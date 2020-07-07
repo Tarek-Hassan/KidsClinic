@@ -14,21 +14,21 @@
 
 ## About ClinicKids
 
-- this Site to manage the clinic 
-    1) patient
-    *   can view all resutl  and print it 
-    *   can view all articles that doctor post
-    2) doctor
-    *   view statistic to top10 patient Visits && the comman age that  came most
-    *   can edit his profile
-    *   can create email&&pass for each patient
-    *   can check patient history and add new visit
-    *   can write articles 
-    *   can view all scheduale  visitit in Calendar
-    3) admin
-    *   view statistic to top doctors visit
-    *   can add a doctor
-    *   can update Setting && About the site
+- This Site to manage the clinic 
+    1) Patient
+    *   Can view all results  and print it .
+    *   Can view all articles that doctor post.
+    2) Doctor
+    *   View statistic to top10 patient Visits && the common age that  came most.
+    *   Can edit his profile.
+    *   Can create email&&pass for each patient.
+    *   Can check the patient history and add new visit.
+    *   Can write articles .
+    *   Can view all schedule  visits in Calendar.
+    3) Admin
+    *   View statistic to top doctors visit.
+    *   Can add a doctor.
+    *   Can update Setting && About the site.
 
 
 - [See All ScreenShots](https://drive.google.com/drive/folders/1ASwuvlAnXOJmZhS2yo0NQEtWS8E5BNET?usp=sharing).
