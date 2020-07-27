@@ -101,7 +101,7 @@ if($request->profile){
             
             $userUpdate = User::findOrFail($id);
             $userUpdate->update($request->all());
-            $userUpdate->fresh();
+          
             return redirect()->route('users.index');
         }
         

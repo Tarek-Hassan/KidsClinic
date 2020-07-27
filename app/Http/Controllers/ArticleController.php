@@ -25,6 +25,9 @@ class ArticleController extends Controller
                     ->addColumn('image', function($row){
                         return "/storage/$row->image";
                         })
+                    ->addColumn('body', function($row){ 
+                      return strip_tags($row->body);
+                    })
                     ->addColumn('doctor_id', function($row){ 
                       return $row->user->name;
                     })
@@ -83,7 +86,7 @@ class ArticleController extends Controller
             
             $articleUpdate = Article::findOrFail($id);
             $articleUpdate->update($request->all());
-            $articleUpdate->fresh();
+          
             return redirect()->route('articles.index');
         }
         

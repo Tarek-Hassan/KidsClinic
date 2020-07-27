@@ -12,7 +12,7 @@
                 <a class="nav-link " href="/#top">Home </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link " href="/#google-map">Contact</a>
+                <a class="nav-link " href="/#appointment">Contact</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link " href="/#about">About Us</a>
@@ -89,7 +89,7 @@
             <!-- Main content -->
             <div class="content">
                 <div class="container-fluid">
-                    <div class="row card">
+                    <div class="row card ">
 
                         @yield('content')
                     </div>

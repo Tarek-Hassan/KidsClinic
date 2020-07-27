@@ -16,7 +16,7 @@ class AboutController extends Controller
     public function update(AboutRequest $request) {
             $AboutUpdate = About::findOrFail(1);
             $AboutUpdate->update($request->all());
-            $AboutUpdate->fresh();
+        
             return redirect()->route('about.index');
         }
 }

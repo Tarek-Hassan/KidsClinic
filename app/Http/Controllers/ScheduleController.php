@@ -65,7 +65,7 @@ public function update(Request $request, $id) {
     
     $scheduleUpdate = Schedule::findOrFail($id);
     $scheduleUpdate->update($request->all());
-    $scheduleUpdate->fresh();
+ 
     return redirect()->route('schedule.index');
 }
 

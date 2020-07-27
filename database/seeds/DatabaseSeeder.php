@@ -42,7 +42,6 @@ class DatabaseSeeder extends Seeder
                 'national_id'=>$faker->isbn10,
                 'patient_id'=>1,
                 'role' => '0',
-                'patient_id' => 1,
                 ]);
             
             $About = factory(App\About::class)->create();
@@ -53,6 +52,7 @@ class DatabaseSeeder extends Seeder
         $Article = factory(App\Article::class,40)->create();
         $Patient = factory(App\Patient::class,20)->create();
         $Visit = factory(App\Visit::class,50)->create();
+        $appointment = factory(App\Appointment::class,10)->create();
                 }
         }
         

@@ -17,7 +17,7 @@ class SettingController extends Controller
     public function update(SettingRequest $request) {
             $settingUpdate = Setting::findOrFail(1);
             $settingUpdate->update($request->all());
-            $settingUpdate->fresh();
+            
             return redirect()->route('setting.index');
         }
 }

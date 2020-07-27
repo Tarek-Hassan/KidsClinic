@@ -23,8 +23,6 @@ class PatientController extends Controller
             }else{
                 $data = Patient::where('doctor_id',Auth::user()->id)->get();
             }
-
-
             return Datatables::of($data)
                     ->addIndexColumn()
 
@@ -126,7 +124,7 @@ class PatientController extends Controller
 
         $userUpdate = Patient::findOrFail($id);
         $userUpdate->update($request->all());
-        $userUpdate->fresh();
+       
         return redirect()->route('patients.index');
     }
 

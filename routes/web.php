@@ -35,14 +35,22 @@ Route::prefix('')->middleware(['auth',])->group(function(){
         Route::put('/{api}', 'APIController@update')->name("api.update");
         Route::delete('/{api}', 'APIController@destroy')->name("api.destroy");
     });
+    // Appointment Avcailable to Admin && User
+    Route::prefix('/appointment')->group(function(){
+        Route::get('','AppointmentController@index')->name('appointments.index');
+        Route::post('','AppointmentController@store')->name('appointments.store');
+        Route::get('/{id}/edit','AppointmentController@edit')->name('appointments.edit');
+        Route::put('/{id}','AppointmentController@update')->name('appointments.update');
+        Route::delete('/{id}','AppointmentController@destroy')->name('appointments.destroy');
+    });
 });
+
 
 //  Admin_DashBoard
 Route::prefix('/admin')->middleware(['auth','admin',])->group(function(){
-
     // Routes For User
     Route::get('', 'StatisticController@index')->name('admin');
-
+    
     // Admin => UserPAGE
     Route::prefix('/users')->group(function(){
         Route::get('', 'UserController@index')->name('users.index');

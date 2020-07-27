@@ -1,18 +1,20 @@
 @extends('admin.index')
-@section('title','Articles')
-@section('section_title','Articles')
+@section('title','Appointments')
+@section('section_title','Appointments')
 @section('content')
 
 <div class="container my-3">
-    <a href="{{route('articles.create')}}" class="edit btn btn-primary btn-sm mb-3">Add Article</a>
+    {{-- <a href="{{route('users.create')}}" class="edit btn btn-primary btn-sm mb-3">Add User</a> --}}
     <table class="table table-bordered data-table">
         <thead>
             <tr>
                 <th>Id.</th>
-                <th>Image</th>
-                <th>Title</th>
-                <th>Body</th>
-                <th>Doctor Name</th>
+                <th>Name</th>
+                <th>Mobile</th>
+                <th>NOtes</th>
+                <th>Time</th>
+                <th>Dept.</th>
+                <th>Checked</th>
                 <th width="100px">Action</th>
             </tr>
         </thead>
@@ -61,33 +63,37 @@
         var table = $('.data-table').DataTable({
             processing: true,
             serverSide: true,
-            ajax: "{{ route('articles.index') }}",
+            ajax: "{{ route('appointments.index') }}",
             columns: [
               {
                     data: 'id',
                     name: 'id'
                 },
                 {
-                    data: 'image',
-                    name: 'image',
-                    render:function(data){ return "<img width='50px' height='50px' src='"+ data + "' />";}
-
+                    data: 'name',
+                    name: 'name'
                 },
                 {
-                    data: 'title',
-                    name: 'title'
+                    data: 'phone',
+                    name: 'phone'
                 },
                 {
-                    data: 'body',
-                    name: 'body',
-                    
+                    data: 'notes',
+                    name: 'notes'
                 },
            
                 {
-                    data: 'doctor_id',
-                    name: 'doctor_id'
+                    data: 'time',
+                    name: 'time'
                 },
-
+                {
+                    data: 'dept',
+                    name: 'dept'
+                },
+                {
+                    data: 'checked',
+                    name: 'checked'
+                },
                  {
                     data: 'action',
                     name: 'action',
@@ -99,10 +105,9 @@
         $(document).on("click", ".del", function () {
             var id = $(this).data('id');
             var deleteForm = document.getElementById("formdelete") // get form 
-            deleteForm.action = '/admin/articles/' + id; // assign action 
+            deleteForm.action = '/appointment/'+ id; // assign action 
         });
     });
-
 </script>
 
 @endsection 
