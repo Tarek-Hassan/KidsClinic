@@ -75,11 +75,7 @@ class PatientController extends Controller
                 
                 return Datatables($data)
                         ->addColumn('date', function($row){
-                        if( $row->created_at){
-                            return $row->created_at->format('D, dMY, h:m a');
-                        }else{
-                            return 'Unkown Date';
-                        }
+                            return $row->created_at ? $row->created_at->format('D, dMY, h:m a') :'Unkown Date';
                         })
                         ->addColumn('patient_id', function($row){
                             return $row->patient->name;
@@ -105,7 +101,7 @@ class PatientController extends Controller
     public function store(StorePatientRequest $request) {
  
 
-        // $request['avatar']=Storage::disk('public')->put('images',$request->profile);
+       
         $request['doctor_id']=Auth::user()->id;
         $user=Patient::create($request->all());
         return redirect()->route('patients.index');
@@ -130,7 +126,7 @@ class PatientController extends Controller
 
     public function destroy($id) {
         $users=Patient::find($id);
-        // Storage::disk('public')->delete($users->avatar);
+       
         $users->delete();
         return redirect()->back();
     }

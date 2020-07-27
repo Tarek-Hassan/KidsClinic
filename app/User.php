@@ -55,6 +55,16 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->hasMany('App\Article','doctor_id');
     }
+    public function roles(){
+        if($this->role == 0){
+            return 'user';
+        }
+        else if($this->role == 1){
+            return 'doctor';
+        }
+        else {return 'admin';
+        }
+    }
 
 
 

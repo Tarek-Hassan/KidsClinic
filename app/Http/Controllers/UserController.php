@@ -28,14 +28,7 @@ class UserController extends Controller
                         })
 
                     ->addColumn('role', function($row){ 
-                        if($row->role == 0){
-                            return 'user';
-                        }
-                        else if($row->role == 1){
-                            return 'doctor';
-                        }
-                        else {return 'admin';
-                        }
+                      return $row->roles();
                     })
 
                     ->addColumn('action', function($row){
@@ -101,7 +94,6 @@ if($request->profile){
             
             $userUpdate = User::findOrFail($id);
             $userUpdate->update($request->all());
-          
             return redirect()->route('users.index');
         }
         
