@@ -83,6 +83,14 @@
                 {{-- to Only Admin --}}
                 @if(Auth::user()->role == '2')
                 <li class="nav-item">
+                    <a href="{{url('admin/order')}}" class="nav-link">
+                        <i class="nav-icon fas fa-stopwatch"></i>
+                        <p>
+                            Orders
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="{{url('/appointment')}}" class="nav-link">
                         <i class="nav-icon fas fa-stopwatch"></i>
                         <p>

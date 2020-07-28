@@ -63,7 +63,6 @@ class ArticleController extends Controller
         
     }   
     
-    
     public function edit(string $id) {
         $article=Article::findOrFail($id);
         return view('articles.edit', compact('article'));

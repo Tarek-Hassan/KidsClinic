@@ -35,6 +35,7 @@ Route::prefix('')->middleware(['auth',])->group(function(){
         Route::put('/{api}', 'APIController@update')->name("api.update");
         Route::delete('/{api}', 'APIController@destroy')->name("api.destroy");
     });
+
     // Appointment Avcailable to Admin && User
     Route::prefix('/appointment')->group(function(){
         Route::get('','AppointmentController@index')->name('appointments.index');
@@ -127,10 +128,18 @@ Route::prefix('/admin')->middleware(['auth','admin',])->group(function(){
         Route::put('', 'AboutController@update')->name("about.update");
     });
  
-
     Route::prefix('/setting')->group(function(){
         Route::get('', 'SettingController@index')->name('setting.index');
         Route::put('', 'SettingController@update')->name("setting.update");
     });
+        // Order   
+        Route::prefix('/order')->group(function(){
+            Route::get('','OrderController@index')->name('orders.index');
+            Route::get('/create','OrderController@create')->name('orders.create');
+            Route::post('','OrderController@store')->name('orders.store');
+            Route::get('/{id}/edit','OrderController@edit')->name('orders.edit');
+            Route::put('/{id}','OrderController@update')->name('orders.update');
+            Route::delete('/{id}','OrderController@destroy')->name('Orders.destroy');
+        });
         
 });
