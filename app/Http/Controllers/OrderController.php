@@ -17,16 +17,6 @@ class OrderController extends Controller
     public function index(Request $request)
     {
        
-//         $digit = new \NumberFormatter("en", \NumberFormatter::SPELLOUT); 
-// echo $digit->format(1000);
-       
-// dd("ddd");
-// phpinfo();
-        // dd (Tafqeet::inArabic(1000));
-        
-        // $d=Order::First();
-        // $d=$d->price;
-
         if ($request->ajax()) {
             $data = Order::latest()->get();
             return Datatables::of($data)
