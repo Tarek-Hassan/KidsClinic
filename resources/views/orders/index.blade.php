@@ -11,6 +11,7 @@
                 <th>Id.</th>
                 <th>Product</th>
                 <th>price</th>
+                <th>priceAr</th>
                 <th>qty</th>
                 <th width="100px">Action</th>
             </tr>
@@ -74,6 +75,10 @@
                 {
                     data: 'price',
                     name: 'price'
+                },
+                {
+                    data: 'pricear',
+                    name: 'pricear'
                 },
                 {
                     data: 'qty',

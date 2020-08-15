@@ -4,8 +4,56 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6aea87f73fb5322d83ad9e821d9a15c0",
+    "content-hash": "2c594b760297cb72e79c91336bd6c2fc",
     "packages": [
+        {
+            "name": "alkoumi/laravel-arabic-tafqeet",
+            "version": "v1.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/alkoumi/laravel-arabic-tafqeet.git",
+                "reference": "3b322621244bb4de47b10332ea39642dedd0aec8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/alkoumi/laravel-arabic-tafqeet/zipball/3b322621244bb4de47b10332ea39642dedd0aec8",
+                "reference": "3b322621244bb4de47b10332ea39642dedd0aec8",
+                "shasum": ""
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Alkoumi\\LaravelArabicTafqeet\\LaravelArabicTafqeetServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Alkoumi\\LaravelArabicTafqeet\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mohammed Alkoumi",
+                    "email": "komy66@gmail.com"
+                }
+            ],
+            "description": "a package to translate money numbers to our Amazing 💝 Arabic language TAFQEET . to look like [فقط تسعمائة ألف ريال و أربعة و ثلاثون هللة لاغير]",
+            "homepage": "https://be.net/komy",
+            "keywords": [
+                "arabic",
+                "arabic numbers",
+                "arabic-date-tafqeet",
+                "numbers",
+                "tafqeet"
+            ],
+            "time": "2020-07-15T13:54:00+00:00"
+        },
         {
             "name": "asdfx/laravel-fullcalendar",
             "version": "v1.0.1",

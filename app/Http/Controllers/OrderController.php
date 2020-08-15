@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Order;
 use Yajra\DataTables\DataTables ; 
 use Illuminate\Http\Request;
+use Alkoumi\LaravelArabicTafqeet\Tafqeet;
 
 class OrderController extends Controller
 {
@@ -14,7 +15,17 @@ class OrderController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request)
-    { 
+    {
+       
+//         $digit = new \NumberFormatter("en", \NumberFormatter::SPELLOUT); 
+// echo $digit->format(1000);
+       
+// dd("ddd");
+// phpinfo();
+        // dd (Tafqeet::inArabic(1000));
+        
+        // $d=Order::First();
+        // $d=$d->price;
 
         if ($request->ajax()) {
             $data = Order::latest()->get();
@@ -27,6 +38,8 @@ class OrderController extends Controller
                         </i> Delete</a>';
                         return $button;
                     })
+                    ->addColumn('pricear',function($row){ return Tafqeet::inArabic($row->price,'egp');})
+                    ->addColumn('qty',function($row){ return $this->arabic_w2e($row->qty) ;})
 
                     ->rawColumns(['action'])
 
@@ -109,4 +122,31 @@ class OrderController extends Controller
     {
         //
     }
+/**
+ * Converts numbers in string from western to eastern Arabic numerals.
+ *
+ * @param  string $str Arbitrary text
+ * @return string Text with  Arabic numerals converted into English numerals.
+ */
+function arabic_w2e($str)
+{
+    $arNumber = array('٠', '١', '٢', '٣', '٤', '٥', '٦', '٧', '٨', '٩');
+    $enNumber= array('0', '1', '2', '3', '4', '5', '6', '7', '8', '9');
+    return str_replace($enNumber, $arNumber, $str);
+}
+
+/**
+ * Converts numbers from eastern to western Arabic numerals.
+ *
+ * @param  string $str Arbitrary text
+ * @return string Text with English numerals converted into  Arabic numerals.
+ */
+function arabic_e2w($str)
+{
+    $arNumber = array('٠', '١', '٢', '٣', '٤', '٥', '٦', '٧', '٨', '٩');
+    $enNumber= array('0', '1', '2', '3', '4', '5', '6', '7', '8', '9');
+
+    return str_replace($arNumber, $enNumber, $str);
+}
+
 }

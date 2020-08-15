@@ -165,7 +165,7 @@ return [
         /*
          * Package Service Providers...
          */
-
+        Alkoumi\LaravelArabicTafqeet\LaravelArabicTafqeetServiceProvider::class,
         /*
          * Application Service Providers...
          */
