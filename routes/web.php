@@ -48,10 +48,6 @@ Route::prefix('')->middleware(['auth',])->group(function(){
     Route::prefix('/message')->group(function(){
         Route::get('','ChatController@getMessage');
         Route::post('','ChatController@addMessage');
-        // Route::post('','AppointmentController@store')->name('appointments.store');
-        // Route::get('/{id}/edit','AppointmentController@edit')->name('appointments.edit');
-        // Route::put('/{id}','AppointmentController@update')->name('appointments.update');
-        // Route::delete('/{id}','AppointmentController@destroy')->name('appointments.destroy');
     });
 });
 
@@ -72,6 +68,16 @@ Route::prefix('/admin')->middleware(['auth','admin',])->group(function(){
         Route::delete('/{user}', 'UserController@destroy')->name("users.destroy");
     });
 
+    // Admin => Stripe PAGE
+    Route::prefix('/stripe')->group(function(){
+        Route::get('', 'StripeController@index')->name('stripe.index');
+        Route::get('/create', 'StripeController@create')->name("stripe.create");
+        Route::post('', 'StripeController@store')->name("stripe.store");
+        Route::get('/{stripe}', 'StripeController@show')->name("stripe.show");
+        Route::get('/{stripe}/edit', 'StripeController@edit')->name("stripe.edit");
+        Route::put('/{stripe}', 'StripeController@update')->name("stripe.update");
+        Route::delete('/{stripe}', 'StripeController@destroy')->name("stripe.destroy");
+    });
     // Admin => Patient PAGE
     Route::prefix('/patients')->group(function(){
         Route::get('', 'PatientController@index')->name('patients.index');

@@ -91,6 +91,16 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="{{url('admin/stripe')}}" class="nav-link">
+            
+                          <i class="nav-icon fab fa-cc-stripe"></i>
+                        
+                        <p>
+                            ​ Stripe_Payments
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="{{url('/appointment')}}" class="nav-link">
                         <i class="nav-icon fas fa-stopwatch"></i>
                         <p>
