@@ -44,6 +44,15 @@ Route::prefix('')->middleware(['auth',])->group(function(){
         Route::put('/{id}','AppointmentController@update')->name('appointments.update');
         Route::delete('/{id}','AppointmentController@destroy')->name('appointments.destroy');
     });
+    // Chat Ajax
+    Route::prefix('/message')->group(function(){
+        Route::get('','ChatController@getMessage');
+        Route::post('','ChatController@addMessage');
+        // Route::post('','AppointmentController@store')->name('appointments.store');
+        // Route::get('/{id}/edit','AppointmentController@edit')->name('appointments.edit');
+        // Route::put('/{id}','AppointmentController@update')->name('appointments.update');
+        // Route::delete('/{id}','AppointmentController@destroy')->name('appointments.destroy');
+    });
 });
 
 

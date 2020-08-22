@@ -187,8 +187,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 col-sm-4">
-            </div>
+
             <div class="col-md-4 col-sm-4">
                 <div class="footer-thumb">
                     <div class="opening-hours">
@@ -202,6 +201,14 @@
                         <li><a href="#" class="fa fa-instagram"></a></li>
                     </ul>
                 </div>
+            </div>
+
+            <div class="col-md-4 col-sm-4">
+                {{-- chat --}}
+
+                @include('home.chat')
+
+                {{-- chat --}}
             </div>
 
 

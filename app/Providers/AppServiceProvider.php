@@ -32,8 +32,7 @@ class AppServiceProvider extends ServiceProvider
             $about=About::first();
             $setting=Setting::first();
             $doctors=User::where('role','1')->get();
-            $articles=Article::orderByDesc('created_at')->limit(3)->get();
-           
+            $articles=Article::orderByDesc('created_at')->limit(3)->get();   
             $view->with(['about'=>$about,'setting'=>$setting,'doctors'=>$doctors,'articles'=>$articles]);
           
         });

@@ -53,6 +53,7 @@ class DatabaseSeeder extends Seeder
         $Patient = factory(App\Patient::class,20)->create();
         $Visit = factory(App\Visit::class,50)->create();
         $appointment = factory(App\Appointment::class,10)->create();
+        $chat=factory(App\Chat::class,10)->create();
                 }
         }
         
