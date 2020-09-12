@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Article;
-use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Storage;    
 use Yajra\DataTables\DataTables ; 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -53,14 +53,13 @@ class ArticleController extends Controller
       
     public function store(ArticleRequest $request) {
      
-        $request['doctor_id']=Auth::user()->id;
+        $request['doctor_id']=Auth::user()->id;   
         if($request->profile){
 
             $request['image']=Storage::disk('public')->put('images',$request->profile);
         }
         $article=Article::create($request->all());
-        return redirect()->route('articles.index');
-        
+        return redirect()->route('articles.index');   
     }   
     
     public function edit(string $id) {

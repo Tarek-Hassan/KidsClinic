@@ -59,19 +59,9 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request->all());
-        foreach ($request->order as $key) {
-            # code...
-            Order::create($key);
+        foreach ($request->order as $row) {
+            Order::create($row);
         }
-        // $len=count($request->product);
-        // for($i=0; $i<$len;$i++){
-        // Order::create([
-        //     'product'=>$request->product[$i],
-        //     'price'=>$request->price[$i],
-        //     'qty'=>$request->qty[$i],
-        // ]);
-        // }
         return redirect()->route('orders.index');
     }
 

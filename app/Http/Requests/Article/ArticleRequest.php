@@ -24,9 +24,12 @@ class ArticleRequest extends FormRequest
     public function rules()
     {
         return [
-            'profile'=>'image|mimes:jpeg,bmp,png',
-            'title' => 'string',
-            'body' => 'max:255'
+            // 'profile'=>'image|mimes:jpeg,bmp,png',
+            'title' => 'required',
+            'body' => 'required'
+            // 'title' => 'required|regex:/^[\d\p{Arabic}]*\p{Arabic}[\d\p{Arabic}]*$/ui',
+            // 'body' => 'required|regex:/^[\d\p{Arabic}]*\p{Arabic}[\d\p{Arabic}]*$/ui'
+            // 'body' => 'max:255'
     ];
     }
 }

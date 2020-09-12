@@ -17,7 +17,6 @@ use Illuminate\Support\Facades\Auth;
 
 Auth::routes(['register' => false,'verify' => true]);
 
-
 //  User_DashBoard
 Route::prefix('')->middleware(['auth',])->group(function(){
     Route::get('', 'HomePageController@index')->name('home');

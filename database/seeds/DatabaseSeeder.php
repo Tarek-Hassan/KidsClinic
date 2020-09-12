@@ -30,7 +30,6 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('123456789'),
             'mobile'=>$faker->e164PhoneNumber,
             'national_id'=>$faker->isbn10,
-          
             'role' => '1',
             ]);
         DB::table('users')->insert([
