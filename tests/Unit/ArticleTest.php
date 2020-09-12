@@ -6,15 +6,19 @@ namespace Tests\Unit;
 use App\Article;
 use App\User;
 use Tests\TestCase;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class ArticleTest extends TestCase
 {
+    use RefreshDatabase
     /**
      * /laravel/clinic/database/database.sqlite
      * 
      *  php artisan make:test ArticleTest --unit
      *  vendor/bin/phpunit --filter ArticleTest
      *  php artisan test
+     * 
+     *  use RefreshDatabase
      */
     /**
      * A basic unit test example.
