@@ -27,8 +27,10 @@ class ArticleRequest extends FormRequest
             // 'profile'=>'image|mimes:jpeg,bmp,png',
             'title' => 'required',
             'body' => 'required'
-            // 'title' => 'required|regex:/^[\d\p{Arabic}]*\p{Arabic}[\d\p{Arabic}]*$/ui',
-            // 'body' => 'required|regex:/^[\d\p{Arabic}]*\p{Arabic}[\d\p{Arabic}]*$/ui'
+            
+//           'ar_name'=>'required|regex:/^[\x{0621}-\x{064A}]+$/u',   
+//             'en_name'=>'required|regex:/^[A-Za-z0-9 _]+$/',
+
             // 'body' => 'max:255'
     ];
     }
